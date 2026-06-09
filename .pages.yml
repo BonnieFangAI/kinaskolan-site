@@ -1,0 +1,64 @@
+content:
+  - name: news_feed
+    label: News Feed
+    type: file
+    path: data/news.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{date} · {slug}"
+    fields:
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: path
+        label: Detail page path
+        type: string
+        required: true
+      - name: date
+        label: Publish date
+        type: date
+        required: true
+      - name: image
+        label: Image path
+        type: string
+        required: true
+      - name: visible
+        label: Visible on site
+        type: boolean
+      - name: showOnHome
+        label: Show on homepage
+        type: boolean
+      - name: title
+        label: Title
+        type: object
+        fields:
+          - name: zh
+            label: Chinese
+            type: string
+            required: true
+          - name: en
+            label: English
+            type: string
+          - name: sv
+            label: Swedish
+            type: string
+            required: true
+      - name: summary
+        label: Summary
+        type: object
+        fields:
+          - name: zh
+            label: Chinese
+            type: text
+            required: true
+          - name: en
+            label: English
+            type: text
+          - name: sv
+            label: Swedish
+            type: text
+            required: true

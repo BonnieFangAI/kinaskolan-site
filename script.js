@@ -686,8 +686,169 @@ const translations = {
   }
 };
 
+let currentLang = "zh";
+let newsItemsPromise;
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function localizeValue(value, lang) {
+  if (value && typeof value === "object") {
+    return value[lang] || value.zh || value.sv || value.en || "";
+  }
+  return value || "";
+}
+
+function loadNewsItems() {
+  if (!newsItemsPromise) {
+    newsItemsPromise = fetch("data/news.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to load news feed: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((items) =>
+        items
+          .filter((item) => item.visible !== false)
+          .sort((left, right) => right.date.localeCompare(left.date))
+      )
+      .catch((error) => {
+        newsItemsPromise = null;
+        throw error;
+      });
+  }
+
+  return newsItemsPromise;
+}
+
+function renderHomeNews(lang, items) {
+  const root = document.getElementById("home-news-root");
+  if (!root) {
+    return;
+  }
+
+  const homeItems = items.filter((item) => item.showOnHome).slice(0, 4);
+  if (!homeItems.length) {
+    root.innerHTML = "";
+    return;
+  }
+
+  const [featured, ...rest] = homeItems;
+  const readMore = translations[lang]?.["common.readMore"] || translations.zh["common.readMore"];
+
+  root.innerHTML = `
+    <article class="news-card news-card-featured">
+      <img src="${escapeHtml(featured.image)}" alt="${escapeHtml(localizeValue(featured.title, lang))}" />
+      <div class="news-card-copy">
+        <span>${escapeHtml(featured.date)}</span>
+        <h3>${escapeHtml(localizeValue(featured.title, lang))}</h3>
+        <p>${escapeHtml(localizeValue(featured.summary, lang))}</p>
+        <a href="${escapeHtml(featured.path)}">${escapeHtml(readMore)}</a>
+      </div>
+    </article>
+    <div class="home-news-list">
+      ${rest
+        .map(
+          (item) => `
+            <article class="news-brief">
+              <span>${escapeHtml(item.date)}</span>
+              <h3>${escapeHtml(localizeValue(item.title, lang))}</h3>
+              <p>${escapeHtml(localizeValue(item.summary, lang))}</p>
+              <a href="${escapeHtml(item.path)}">${escapeHtml(readMore)}</a>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderNewsList(lang, items) {
+  const root = document.getElementById("news-list-root");
+  if (!root) {
+    return;
+  }
+
+  const readMore = translations[lang]?.["common.readMore"] || translations.zh["common.readMore"];
+  const [leadOne, leadTwo, ...rest] = items;
+
+  root.innerHTML = `
+    ${
+      leadOne
+        ? `
+      <article class="news-row">
+        <img src="${escapeHtml(leadOne.image)}" alt="${escapeHtml(localizeValue(leadOne.title, lang))}" />
+        <div class="news-row-copy">
+          <span>${escapeHtml(leadOne.date)}</span>
+          <h2>${escapeHtml(localizeValue(leadOne.title, lang))}</h2>
+          <p>${escapeHtml(localizeValue(leadOne.summary, lang))}</p>
+          <a href="${escapeHtml(leadOne.path)}">${escapeHtml(readMore)}</a>
+        </div>
+      </article>
+    `
+        : ""
+    }
+    ${
+      leadTwo
+        ? `
+      <article class="news-row">
+        <img src="${escapeHtml(leadTwo.image)}" alt="${escapeHtml(localizeValue(leadTwo.title, lang))}" />
+        <div class="news-row-copy">
+          <span>${escapeHtml(leadTwo.date)}</span>
+          <h2>${escapeHtml(localizeValue(leadTwo.title, lang))}</h2>
+          <p>${escapeHtml(localizeValue(leadTwo.summary, lang))}</p>
+          <a href="${escapeHtml(leadTwo.path)}">${escapeHtml(readMore)}</a>
+        </div>
+      </article>
+    `
+        : ""
+    }
+    <div class="stack-grid">
+      ${rest
+        .map(
+          (item) => `
+            <article class="panel-card">
+              <span>${escapeHtml(item.date)}</span>
+              <h2>${escapeHtml(localizeValue(item.title, lang))}</h2>
+              <p>${escapeHtml(localizeValue(item.summary, lang))}</p>
+              <a href="${escapeHtml(item.path)}">${escapeHtml(readMore)}</a>
+            </article>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderDynamicContent(lang) {
+  loadNewsItems()
+    .then((items) => {
+      renderHomeNews(lang, items);
+      renderNewsList(lang, items);
+    })
+    .catch(() => {
+      const homeRoot = document.getElementById("home-news-root");
+      const listRoot = document.getElementById("news-list-root");
+
+      if (homeRoot) {
+        homeRoot.innerHTML = "";
+      }
+      if (listRoot) {
+        listRoot.innerHTML = "";
+      }
+    });
+}
+
 function applyTranslations(lang) {
   const dict = translations[lang] || translations.zh;
+  currentLang = lang;
   document.documentElement.lang = lang === "sv" ? "sv" : lang === "en" ? "en" : "zh-Hans";
 
   document.querySelectorAll("[data-i18n]").forEach((node) => {
@@ -707,6 +868,8 @@ function applyTranslations(lang) {
   langOptions.forEach((button) => {
     button.classList.toggle("active", button.dataset.lang === lang);
   });
+
+  renderDynamicContent(lang);
 }
 
 const params = new URLSearchParams(window.location.search);
