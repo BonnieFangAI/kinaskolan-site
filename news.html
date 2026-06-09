@@ -12,35 +12,40 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="news">
     <div class="site-shell site-shell-page">
       <header class="topbar">
         <a class="brand" href="index.html">
           <img class="brand-logo" src="logo-live.png" alt="瑞青中文学校 logo" />
           <span class="brand-copy">
             <strong>Kinaskolan</strong>
-            <small>斯德哥尔摩瑞青中文学校</small>
+            <small data-i18n="brand.school">斯德哥尔摩瑞青中文学校</small>
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-option active" type="button" data-lang="zh">中</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="sv">SV</button>
+        </div>
         <nav class="nav">
-          <a href="about.html">瑞青简介</a>
-          <a href="courses.html">课程体系</a>
-          <a class="active" href="news.html">新闻</a>
-          <a href="students.html">学生作品</a>
-          <a href="hsk.html">汉考信息</a>
-          <a href="contact.html">招生联系</a>
+          <a href="about.html" data-i18n="nav.about">瑞青简介</a>
+          <a href="courses.html" data-i18n="nav.courses">课程体系</a>
+          <a class="active" href="news.html" data-i18n="nav.news">新闻</a>
+          <a href="students.html" data-i18n="nav.students">学生作品</a>
+          <a href="hsk.html" data-i18n="nav.hsk">汉考信息</a>
+          <a href="contact.html" data-i18n="nav.contact">招生联系</a>
         </nav>
       </header>
 
       <main class="page-layout">
         <section class="page-hero">
-          <p class="eyebrow">学校新闻</p>
-          <h1>近期学校活动、课程通知与校园动态</h1>
-          <p>以下展示学校近一年内的重要新闻、课程安排、活动报道与招生相关信息。</p>
+          <p class="eyebrow" data-i18n="news.eyebrow">学校新闻</p>
+          <h1 data-i18n="news.heroTitle">近期学校活动、课程通知与校园动态</h1>
+          <p data-i18n="news.heroText">以下展示学校近一年内的重要新闻、课程安排、活动报道与招生相关信息。</p>
         </section>
 
         <section class="news-list">
@@ -48,12 +53,12 @@
             <img src="news-ambassador.jpg" alt="第十二届大使奖活动现场" />
             <div class="news-row-copy">
               <span>2026-05-28</span>
-              <h2>瑞青中文学校 2026 年第十二届“大使奖”优秀朗诵作品展演暨颁奖典礼</h2>
-              <p>
+              <h2 data-i18n="news.item1Title">瑞青中文学校 2026 年第十二届“大使奖”优秀朗诵作品展演暨颁奖典礼</h2>
+              <p data-i18n="news.item1Text">
                 五月芳菲，文脉绵长。学校以朗诵连接课堂与舞台，让海外学子在诵读中感受中文之美，
                 也让家长与来宾共同见证学生成长与学校教学成果。
               </p>
-              <a href="news-ambassador-2026.html">阅读全文</a>
+              <a href="news-ambassador-2026.html" data-i18n="common.readMore">阅读全文</a>
             </div>
           </article>
 
@@ -61,58 +66,58 @@
             <img src="trip-finland.png" alt="芬兰游学活动图片" />
             <div class="news-row-copy">
               <span>2026-05-21</span>
-              <h2>中文浸润下的和平之旅：瑞典华校芬兰游学记</h2>
-              <p>
+              <h2 data-i18n="news.item2Title">中文浸润下的和平之旅：瑞典华校芬兰游学记</h2>
+              <p data-i18n="news.item2Text">
                 学生在旅途中用中文记录历史、讨论和平，让中文不只停留在课本上，
                 而成为理解世界、连接历史与现实的一种能力。
               </p>
-              <a href="news-finland-trip-2026.html">阅读全文</a>
+              <a href="news-finland-trip-2026.html" data-i18n="common.readMore">阅读全文</a>
             </div>
           </article>
 
           <div class="stack-grid">
             <article class="panel-card">
               <span>2026-05-26</span>
-              <h2>瑞青中文 2026 秋课程安排</h2>
-              <p>秋季学期课程安排已经公布，方便家长和学生及时了解新学期的教学节奏。</p>
-              <a href="news-autumn-2026.html">阅读全文</a>
+              <h2 data-i18n="news.item3Title">瑞青中文 2026 秋课程安排</h2>
+              <p data-i18n="news.item3Text">秋季学期课程安排已经公布，方便家长和学生及时了解新学期的教学节奏。</p>
+              <a href="news-autumn-2026.html" data-i18n="common.readMore">阅读全文</a>
             </article>
             <article class="panel-card">
               <span>2026-05-22</span>
-              <h2>瑞青中文夏令营报名啦</h2>
-              <p>学校暑期活动现已开放报名，包含室外活动、中文游戏与篝火晚会等丰富内容。</p>
-              <a href="news-summercamp-2026.html">阅读全文</a>
+              <h2 data-i18n="news.item4Title">瑞青中文夏令营报名啦</h2>
+              <p data-i18n="news.item4Text">学校暑期活动现已开放报名，包含室外活动、中文游戏与篝火晚会等丰富内容。</p>
+              <a href="news-summercamp-2026.html" data-i18n="common.readMore">阅读全文</a>
             </article>
             <article class="panel-card">
               <span>2026-05-21</span>
-              <h2>Chinese proficiency Exam at Stockholm Center completed successfully</h2>
-              <p>The HSK exam in Stockholm was successfully held, attracting candidates from different Nordic countries and learning backgrounds.</p>
-              <a href="news-hsk-spring-2026.html">阅读全文</a>
+              <h2 data-i18n="news.item5Title">Chinese proficiency Exam at Stockholm Center completed successfully</h2>
+              <p data-i18n="news.item5Text">The HSK exam in Stockholm was successfully held, attracting candidates from different Nordic countries and learning backgrounds.</p>
+              <a href="news-hsk-spring-2026.html" data-i18n="common.readMore">阅读全文</a>
             </article>
             <article class="panel-card">
               <span>2026-05-21</span>
-              <h2>2026 斯京 HSK 春季考试圆满落幕</h2>
-              <p>来自不同国家和不同学习背景的考生齐聚斯德哥尔摩，学校作为考点顺利完成本次考试组织工作。</p>
-              <a href="news-hsk-spring-2026.html">阅读全文</a>
+              <h2 data-i18n="news.item6Title">2026 斯京 HSK 春季考试圆满落幕</h2>
+              <p data-i18n="news.item6Text">来自不同国家和不同学习背景的考生齐聚斯德哥尔摩，学校作为考点顺利完成本次考试组织工作。</p>
+              <a href="news-hsk-spring-2026.html" data-i18n="common.readMore">阅读全文</a>
             </article>
             <article class="panel-card">
               <span>2026-04-05</span>
-              <h2>瑞青第十二届“大使奖”全校朗诵大赛精彩呈现</h2>
-              <p>全校朗诵活动延续课堂到舞台的教学路径，也为后续优秀作品展演和颁奖典礼做了完整铺垫。</p>
-              <a href="news-recital-2026.html">阅读全文</a>
+              <h2 data-i18n="news.item7Title">瑞青第十二届“大使奖”全校朗诵大赛精彩呈现</h2>
+              <p data-i18n="news.item7Text">全校朗诵活动延续课堂到舞台的教学路径，也为后续优秀作品展演和颁奖典礼做了完整铺垫。</p>
+              <a href="news-recital-2026.html" data-i18n="common.readMore">阅读全文</a>
             </article>
             <article class="panel-card">
               <span>2025-11-28</span>
-              <h2>瑞青中文学校 2026 年春季安排</h2>
-              <p>保留近一年内的学期信息，让家长仍可回看春季学期的班级节奏与报名联系方式。</p>
-              <a href="news-spring-2026.html">阅读全文</a>
+              <h2 data-i18n="news.item8Title">瑞青中文学校 2026 年春季安排</h2>
+              <p data-i18n="news.item8Text">保留近一年内的学期信息，让家长仍可回看春季学期的班级节奏与报名联系方式。</p>
+              <a href="news-spring-2026.html" data-i18n="common.readMore">阅读全文</a>
             </article>
           </div>
         </section>
       </main>
       <footer class="footer">
-        <p>斯德哥尔摩瑞青中文学校<br />Kinaskolan Ruiqing i Stockholm</p>
-        <p>近一年新闻归档预览<br />Södra Latins Gymnasium</p>
+        <p><span data-i18n="footer.school">斯德哥尔摩瑞青中文学校</span><br />Kinaskolan Ruiqing i Stockholm</p>
+        <p><span data-i18n="news.footerNote">近一年新闻归档预览</span><br />Södra Latins Gymnasium</p>
       </footer>
     </div>
     <script src="script.js"></script>

@@ -12,44 +12,51 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="hsk">
     <div class="site-shell site-shell-page">
       <header class="topbar">
         <a class="brand" href="index.html">
           <img class="brand-logo" src="logo-live.png" alt="瑞青中文学校 logo" />
           <span class="brand-copy">
             <strong>Kinaskolan</strong>
-            <small>斯德哥尔摩瑞青中文学校</small>
+            <small data-i18n="brand.school">斯德哥尔摩瑞青中文学校</small>
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-option active" type="button" data-lang="zh">中</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="sv">SV</button>
+        </div>
         <nav class="nav">
-          <a href="about.html">瑞青简介</a>
-          <a href="courses.html">课程体系</a>
-          <a href="news.html">新闻</a>
-          <a href="students.html">学生作品</a>
-          <a class="active" href="hsk.html">汉考信息</a>
-          <a href="contact.html">招生联系</a>
+          <a href="about.html" data-i18n="nav.about">瑞青简介</a>
+          <a href="courses.html" data-i18n="nav.courses">课程体系</a>
+          <a href="news.html" data-i18n="nav.news">新闻</a>
+          <a href="students.html" data-i18n="nav.students">学生作品</a>
+          <a class="active" href="hsk.html" data-i18n="nav.hsk">汉考信息</a>
+          <a href="contact.html" data-i18n="nav.contact">招生联系</a>
         </nav>
       </header>
 
       <main class="page-layout">
         <section class="page-hero">
-          <p class="eyebrow">HSK / Test Center</p>
-          <h1>汉语水平考试中心信息</h1>
-          <p>瑞青中文学校为北欧地区学习者提供 HSK 考试相关说明、报名方式与联系方式。</p>
+          <p class="eyebrow" data-i18n="hsk.eyebrow">HSK / Test Center</p>
+          <h1 data-i18n="hsk.heroTitle">汉语水平考试中心信息</h1>
+          <p data-i18n="hsk.heroText">瑞青中文学校为北欧地区学习者提供 HSK 考试相关说明、报名方式与联系方式。</p>
         </section>
 
         <section class="content-split">
           <article class="panel-card panel-card-rich">
-            <span>考试说明</span>
-            <h2>瑞青中文学校 / Södra Latins Gymnasium</h2>
-            <p>参加 HSK 考试可以帮助学习者了解自己的汉语水平，也可用于申请留学及奖学金，并成为求职就职的重要能力证明。</p>
-            <p>报名方式：官方网站 <a href="https://www.chinesetest.cn">www.chinesetest.cn</a></p>
-            <p>联系方式：hsk@kinaskolan.se / 王梅霜校长 0707-203516</p>
+            <span data-i18n="hsk.infoLabel">考试说明</span>
+            <h2 data-i18n="hsk.infoTitle">瑞青中文学校 / Södra Latins Gymnasium</h2>
+            <div data-i18n-html="hsk.infoBody">
+              <p>参加 HSK 考试可以帮助学习者了解自己的汉语水平，也可用于申请留学及奖学金，并成为求职就职的重要能力证明。</p>
+              <p>报名方式：官方网站 <a href="https://www.chinesetest.cn">www.chinesetest.cn</a></p>
+              <p>联系方式：hsk@kinaskolan.se / 王梅霜校长 0707-203516</p>
+            </div>
           </article>
           <aside class="media-card media-card-poster">
             <img src="hsk-poster.jpeg" alt="HSK 考试海报" />
@@ -58,49 +65,49 @@
 
         <section class="stack-grid">
           <article class="panel-card">
-            <span>考试作用</span>
-            <h2>教学评估</h2>
-            <p>对自己目前的汉语学习水平进行了解，方便进一步学习和老师指导。</p>
+            <span data-i18n="hsk.useLabel">考试作用</span>
+            <h2 data-i18n="hsk.use1Title">教学评估</h2>
+            <p data-i18n="hsk.use1Text">对自己目前的汉语学习水平进行了解，方便进一步学习和老师指导。</p>
           </article>
           <article class="panel-card">
-            <span>考试作用</span>
-            <h2>留学与奖学金</h2>
-            <p>原站明确提到孔子学院奖学金等中国大学奖学金通常需要 HSK3 级以上证书。</p>
+            <span data-i18n="hsk.useLabel">考试作用</span>
+            <h2 data-i18n="hsk.use2Title">留学与奖学金</h2>
+            <p data-i18n="hsk.use2Text">原站明确提到孔子学院奖学金等中国大学奖学金通常需要 HSK3 级以上证书。</p>
           </article>
           <article class="panel-card">
-            <span>考试作用</span>
-            <h2>求职就职</h2>
-            <p>在国内外政府部门和跨国企业中，HSK 可作为招聘、提薪和晋升的重要依据。</p>
+            <span data-i18n="hsk.useLabel">考试作用</span>
+            <h2 data-i18n="hsk.use3Title">求职就职</h2>
+            <p data-i18n="hsk.use3Text">在国内外政府部门和跨国企业中，HSK 可作为招聘、提薪和晋升的重要依据。</p>
           </article>
         </section>
 
         <section class="section-grid">
           <div class="section-heading">
-            <p class="eyebrow">Related Updates</p>
-            <h2>近期考试相关信息</h2>
+            <p class="eyebrow" data-i18n="hsk.relatedEyebrow">Related Updates</p>
+            <h2 data-i18n="hsk.relatedTitle">近期考试相关信息</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card accent-gold">
-              <h3>2026 Stockholm HSK 考试通知</h3>
-              <p>考试时间、级别安排与报名入口均已在原站发布，适合后续做成后台独立维护的考试通知卡片。</p>
-              <a href="news-hsk-spring-2026.html">查看动态</a>
+              <h3 data-i18n="hsk.related1Title">2026 Stockholm HSK 考试通知</h3>
+              <p data-i18n="hsk.related1Text">考试时间、级别安排与报名入口均已在原站发布，适合后续做成后台独立维护的考试通知卡片。</p>
+              <a href="news-hsk-spring-2026.html" data-i18n="common.viewUpdate">查看动态</a>
             </article>
             <article class="feature-card accent-red">
-              <h3>2026 春季考试圆满落幕</h3>
-              <p>学校完成春季考试组织工作，体现了作为北欧地区 HSK 考点的实际服务能力。</p>
-              <a href="news-hsk-spring-2026.html">查看动态</a>
+              <h3 data-i18n="hsk.related2Title">2026 春季考试圆满落幕</h3>
+              <p data-i18n="hsk.related2Text">学校完成春季考试组织工作，体现了作为北欧地区 HSK 考点的实际服务能力。</p>
+              <a href="news-hsk-spring-2026.html" data-i18n="common.viewUpdate">查看动态</a>
             </article>
             <article class="feature-card accent-blue">
-              <h3>Stockholm Center completed successfully</h3>
-              <p>原站已保留英文稿件，后续新版可继续支持中英双语考试信息发布。</p>
-              <a href="news-hsk-spring-2026.html">查看动态</a>
+              <h3 data-i18n="hsk.related3Title">Stockholm Center completed successfully</h3>
+              <p data-i18n="hsk.related3Text">原站已保留英文稿件，后续新版可继续支持中英双语考试信息发布。</p>
+              <a href="news-hsk-spring-2026.html" data-i18n="common.viewUpdate">查看动态</a>
             </article>
           </div>
         </section>
       </main>
       <footer class="footer">
-        <p>斯德哥尔摩瑞青中文学校<br />Kinaskolan Ruiqing i Stockholm</p>
-        <p>HSK Test Center<br />hsk@kinaskolan.se · 0707-203516</p>
+        <p><span data-i18n="footer.school">斯德哥尔摩瑞青中文学校</span><br />Kinaskolan Ruiqing i Stockholm</p>
+        <p><span data-i18n="hsk.footerLabel">HSK Test Center</span><br />hsk@kinaskolan.se · 0707-203516</p>
       </footer>
     </div>
     <script src="script.js"></script>

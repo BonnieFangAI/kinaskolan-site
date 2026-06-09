@@ -12,43 +12,48 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="students">
     <div class="site-shell site-shell-page">
       <header class="topbar">
         <a class="brand" href="index.html">
           <img class="brand-logo" src="logo-live.png" alt="瑞青中文学校 logo" />
           <span class="brand-copy">
             <strong>Kinaskolan</strong>
-            <small>斯德哥尔摩瑞青中文学校</small>
+            <small data-i18n="brand.school">斯德哥尔摩瑞青中文学校</small>
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-option active" type="button" data-lang="zh">中</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="sv">SV</button>
+        </div>
         <nav class="nav">
-          <a href="about.html">瑞青简介</a>
-          <a href="courses.html">课程体系</a>
-          <a href="news.html">新闻</a>
-          <a class="active" href="students.html">学生作品</a>
-          <a href="hsk.html">汉考信息</a>
-          <a href="contact.html">招生联系</a>
+          <a href="about.html" data-i18n="nav.about">瑞青简介</a>
+          <a href="courses.html" data-i18n="nav.courses">课程体系</a>
+          <a href="news.html" data-i18n="nav.news">新闻</a>
+          <a class="active" href="students.html" data-i18n="nav.students">学生作品</a>
+          <a href="hsk.html" data-i18n="nav.hsk">汉考信息</a>
+          <a href="contact.html" data-i18n="nav.contact">招生联系</a>
         </nav>
       </header>
 
       <main class="page-layout">
         <section class="page-hero">
-          <p class="eyebrow">学生作品</p>
-          <h1>学生写作、比赛作品与活动成果展示</h1>
-          <p>这里集中展示学生阅读写作成果，以及朗诵、书写、游学等活动中的精彩内容。</p>
+          <p class="eyebrow" data-i18n="students.eyebrow">学生作品</p>
+          <h1 data-i18n="students.heroTitle">学生写作、比赛作品与活动成果展示</h1>
+          <p data-i18n="students.heroText">这里集中展示学生阅读写作成果，以及朗诵、书写、游学等活动中的精彩内容。</p>
         </section>
 
         <section class="content-split">
           <article class="panel-card panel-card-rich">
-            <span>学生作品</span>
-            <h2>阅读与写作成果</h2>
-            <p>学校长期鼓励学生通过阅读与写作深化中文表达，形成了稳定的学生作品积累。</p>
-            <p>这里收录读后感、写作练习、比赛作品与活动成果，呈现学生在语言学习中的真实成长。</p>
+            <span data-i18n="students.introLabel">学生作品</span>
+            <h2 data-i18n="students.introTitle">阅读与写作成果</h2>
+            <p data-i18n="students.introText1">学校长期鼓励学生通过阅读与写作深化中文表达，形成了稳定的学生作品积累。</p>
+            <p data-i18n="students.introText2">这里收录读后感、写作练习、比赛作品与活动成果，呈现学生在语言学习中的真实成长。</p>
           </article>
           <aside class="media-card">
             <img src="trip-finland.png" alt="学校游学活动" />
@@ -57,52 +62,52 @@
 
         <section class="stack-grid">
           <article class="panel-card">
-            <span>阅读作品</span>
-            <h2>《宾馆谜案》读后感</h2>
-            <p>作者：陈瑞麒，11 岁。通过阅读与写作训练，学生能够更完整地表达观点与阅读感受。</p>
-            <a href="student-hotel-mystery.html">阅读全文</a>
+            <span data-i18n="students.readingLabel">阅读作品</span>
+            <h2 data-i18n="students.work1Title">《宾馆谜案》读后感</h2>
+            <p data-i18n="students.work1Text">作者：陈瑞麒，11 岁。通过阅读与写作训练，学生能够更完整地表达观点与阅读感受。</p>
+            <a href="student-hotel-mystery.html" data-i18n="common.readMore">阅读全文</a>
           </article>
           <article class="panel-card">
-            <span>阅读作品</span>
-            <h2>云边有个小卖部</h2>
-            <p>学生通过中文阅读作品训练理解、概括与表达能力，也让中文学习与真实情感体验建立联系。</p>
-            <a href="student-yunbian.html">阅读全文</a>
+            <span data-i18n="students.readingLabel">阅读作品</span>
+            <h2 data-i18n="students.work2Title">云边有个小卖部</h2>
+            <p data-i18n="students.work2Text">学生通过中文阅读作品训练理解、概括与表达能力，也让中文学习与真实情感体验建立联系。</p>
+            <a href="student-yunbian.html" data-i18n="common.readMore">阅读全文</a>
           </article>
           <article class="panel-card">
-            <span>阅读作品</span>
-            <h2>《我的世界-幽灵的传说》</h2>
-            <p>学生作品既呈现中文能力的提升，也记录他们对故事、人物与世界的个人理解。</p>
-            <a href="student-minecraft-ghost.html">阅读全文</a>
+            <span data-i18n="students.readingLabel">阅读作品</span>
+            <h2 data-i18n="students.work3Title">《我的世界-幽灵的传说》</h2>
+            <p data-i18n="students.work3Text">学生作品既呈现中文能力的提升，也记录他们对故事、人物与世界的个人理解。</p>
+            <a href="student-minecraft-ghost.html" data-i18n="common.readMore">阅读全文</a>
           </article>
         </section>
 
         <section class="section-grid">
           <div class="section-heading">
-            <p class="eyebrow">校园成果</p>
-            <h2>比赛与活动也是学生成长的一部分</h2>
+            <p class="eyebrow" data-i18n="students.eventsEyebrow">校园成果</p>
+            <h2 data-i18n="students.eventsTitle">比赛与活动也是学生成长的一部分</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card accent-red">
-              <h3>第十二届“大使奖”朗诵大赛</h3>
-              <p>朗诵比赛把课堂朗读、舞台表达与中华文化学习结合在一起。</p>
-              <a href="news-recital-2026.html">查看活动</a>
+              <h3 data-i18n="students.event1Title">第十二届“大使奖”朗诵大赛</h3>
+              <p data-i18n="students.event1Text">朗诵比赛把课堂朗读、舞台表达与中华文化学习结合在一起。</p>
+              <a href="news-recital-2026.html" data-i18n="common.viewActivity">查看活动</a>
             </article>
             <article class="feature-card accent-blue">
-              <h3>书写比赛 / 书法大赛</h3>
-              <p>书写与书法活动帮助学生在笔墨之间理解汉字结构与审美。</p>
-              <a href="news-calligraphy-2024.html">查看活动</a>
+              <h3 data-i18n="students.event2Title">书写比赛 / 书法大赛</h3>
+              <p data-i18n="students.event2Text">书写与书法活动帮助学生在笔墨之间理解汉字结构与审美。</p>
+              <a href="news-calligraphy-2024.html" data-i18n="common.viewActivity">查看活动</a>
             </article>
             <article class="feature-card accent-green">
-              <h3>游园会 / 游学 / 夏令营</h3>
-              <p>校园活动把语言学习延伸到真实生活场景，增加学生的参与感与文化体验。</p>
-              <a href="news-finland-trip-2026.html">查看活动</a>
+              <h3 data-i18n="students.event3Title">游园会 / 游学 / 夏令营</h3>
+              <p data-i18n="students.event3Text">校园活动把语言学习延伸到真实生活场景，增加学生的参与感与文化体验。</p>
+              <a href="news-finland-trip-2026.html" data-i18n="common.viewActivity">查看活动</a>
             </article>
           </div>
         </section>
       </main>
       <footer class="footer">
-        <p>斯德哥尔摩瑞青中文学校<br />Kinaskolan Ruiqing i Stockholm</p>
-        <p>学生作品与活动成果预览<br />持续整理原站内容</p>
+        <p><span data-i18n="footer.school">斯德哥尔摩瑞青中文学校</span><br />Kinaskolan Ruiqing i Stockholm</p>
+        <p><span data-i18n="students.footerNote">学生作品与活动成果预览</span><br /><span data-i18n="students.footerSub">持续整理原站内容</span></p>
       </footer>
     </div>
     <script src="script.js"></script>

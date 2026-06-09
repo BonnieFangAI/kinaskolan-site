@@ -12,35 +12,40 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="courses">
     <div class="site-shell site-shell-page">
       <header class="topbar">
         <a class="brand" href="index.html">
           <img class="brand-logo" src="logo-live.png" alt="瑞青中文学校 logo" />
           <span class="brand-copy">
             <strong>Kinaskolan</strong>
-            <small>斯德哥尔摩瑞青中文学校</small>
+            <small data-i18n="brand.school">斯德哥尔摩瑞青中文学校</small>
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-option active" type="button" data-lang="zh">中</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="sv">SV</button>
+        </div>
         <nav class="nav">
-          <a href="about.html">瑞青简介</a>
-          <a class="active" href="courses.html">课程体系</a>
-          <a href="news.html">新闻</a>
-          <a href="students.html">学生作品</a>
-          <a href="hsk.html">汉考信息</a>
-          <a href="contact.html">招生联系</a>
+          <a href="about.html" data-i18n="nav.about">瑞青简介</a>
+          <a class="active" href="courses.html" data-i18n="nav.courses">课程体系</a>
+          <a href="news.html" data-i18n="nav.news">新闻</a>
+          <a href="students.html" data-i18n="nav.students">学生作品</a>
+          <a href="hsk.html" data-i18n="nav.hsk">汉考信息</a>
+          <a href="contact.html" data-i18n="nav.contact">招生联系</a>
         </nav>
       </header>
 
       <main class="page-layout">
         <section class="page-hero">
-          <p class="eyebrow">课程体系</p>
-          <h1>以系统中文课程为主轴，以文化课程和活动体系为延伸。</h1>
-          <p>
+          <p class="eyebrow" data-i18n="courses.eyebrow">课程体系</p>
+          <h1 data-i18n="courses.heroTitle">以系统中文课程为主轴，以文化课程和活动体系为延伸。</h1>
+          <p data-i18n="courses.heroText">
             瑞青中文学校从学生发展出发，逐步形成了课程体系为主、文化体系和活动体系为辅的教学模式，
             兼顾语言能力、文化理解和长期学习兴趣。
           </p>
@@ -48,16 +53,18 @@
 
         <section class="content-split">
           <article class="panel-card panel-card-rich">
-            <span>瑞青特色</span>
-            <h2>十年制中文教育系统</h2>
-            <p>
-              学校自 2008 年创立以来，不断完善海外中文教育路径，面向不同年龄段和不同语言背景学生，
-              形成了覆盖学前、低中高年级、青少年、对外汉语和成人班的多梯度教学结构。
-            </p>
-            <p>
-              教学重点不是短期灌输，而是让学生在长期学习中逐步建立识字、阅读、写作、
-              表达与文化理解能力。
-            </p>
+            <span data-i18n="courses.introLabel">瑞青特色</span>
+            <h2 data-i18n="courses.introTitle">十年制中文教育系统</h2>
+            <div data-i18n-html="courses.introBody">
+              <p>
+                学校自 2008 年创立以来，不断完善海外中文教育路径，面向不同年龄段和不同语言背景学生，
+                形成了覆盖学前、低中高年级、青少年、对外汉语和成人班的多梯度教学结构。
+              </p>
+              <p>
+                教学重点不是短期灌输，而是让学生在长期学习中逐步建立识字、阅读、写作、
+                表达与文化理解能力。
+              </p>
+            </div>
           </article>
           <aside class="media-card">
             <img src="campus.jpg" alt="学校上课环境" />
@@ -66,80 +73,80 @@
 
         <section class="stack-grid">
           <article class="panel-card">
-            <span>班级设置</span>
-            <h2>学前班</h2>
-            <p>主要面向 4-5 岁儿童，通过儿歌、故事和启蒙识字建立中文听说基础与良好学习习惯。</p>
+            <span data-i18n="courses.classLabel">班级设置</span>
+            <h2 data-i18n="courses.class1Title">学前班</h2>
+            <p data-i18n="courses.class1Text">主要面向 4-5 岁儿童，通过儿歌、故事和启蒙识字建立中文听说基础与良好学习习惯。</p>
           </article>
           <article class="panel-card">
-            <span>班级设置</span>
-            <h2>低中高年级组</h2>
-            <p>面向本地华人华侨子女及多语家庭学生，强调系统识字、阅读理解和课堂表达。</p>
+            <span data-i18n="courses.classLabel">班级设置</span>
+            <h2 data-i18n="courses.class2Title">低中高年级组</h2>
+            <p data-i18n="courses.class2Text">面向本地华人华侨子女及多语家庭学生，强调系统识字、阅读理解和课堂表达。</p>
           </article>
           <article class="panel-card">
-            <span>班级设置</span>
-            <h2>青少年 / 成人 / 对外汉语班</h2>
-            <p>兼顾海外成长学生、瑞典本地学习者与成人兴趣学习者，课程更贴近日常交流和文化理解。</p>
+            <span data-i18n="courses.classLabel">班级设置</span>
+            <h2 data-i18n="courses.class3Title">青少年 / 成人 / 对外汉语班</h2>
+            <p data-i18n="courses.class3Text">兼顾海外成长学生、瑞典本地学习者与成人兴趣学习者，课程更贴近日常交流和文化理解。</p>
           </article>
         </section>
 
         <section class="section-grid">
           <div class="section-heading">
-            <p class="eyebrow">教材与教学</p>
-            <h2>主教材与分级学习路径</h2>
+            <p class="eyebrow" data-i18n="courses.materialsEyebrow">教材与教学</p>
+            <h2 data-i18n="courses.materialsTitle">主教材与分级学习路径</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card accent-gold">
-              <h3>学前班</h3>
-              <p>以自编教材和启蒙内容为主，帮助儿童建立中文听说、识字和课堂参与能力。</p>
+              <h3 data-i18n="courses.material1Title">学前班</h3>
+              <p data-i18n="courses.material1Text">以自编教材和启蒙内容为主，帮助儿童建立中文听说、识字和课堂参与能力。</p>
             </article>
             <article class="feature-card accent-red">
-              <h3>一年级至初中</h3>
-              <p>系统使用《新双双中文教材》，并按年级搭配中文课本、中国成语、中国地理、古代故事等内容。</p>
+              <h3 data-i18n="courses.material2Title">一年级至初中</h3>
+              <p data-i18n="courses.material2Text">系统使用《新双双中文教材》，并按年级搭配中文课本、中国成语、中国地理、古代故事等内容。</p>
             </article>
             <article class="feature-card accent-blue">
-              <h3>对外汉语课程</h3>
-              <p>采用《中文好学》与 HSK 标准教程，适合非母语学习者按阶段逐步提升。</p>
+              <h3 data-i18n="courses.material3Title">对外汉语课程</h3>
+              <p data-i18n="courses.material3Text">采用《中文好学》与 HSK 标准教程，适合非母语学习者按阶段逐步提升。</p>
             </article>
           </div>
         </section>
 
         <section class="section-grid">
           <div class="section-heading">
-            <p class="eyebrow">文化课程</p>
-            <h2>语言学习之外，学校也重视审美、表达与文化体验。</h2>
+            <p class="eyebrow" data-i18n="courses.cultureEyebrow">文化课程</p>
+            <h2 data-i18n="courses.cultureTitle">语言学习之外，学校也重视审美、表达与文化体验。</h2>
           </div>
           <div class="feature-grid">
             <article class="feature-card accent-green">
-              <h3>书法 / 美术 / 舞蹈</h3>
-              <p>学校长期开设书法、美术、舞蹈等课程，让学生在艺术训练中接触中华文化。</p>
+              <h3 data-i18n="courses.culture1Title">书法 / 美术 / 舞蹈</h3>
+              <p data-i18n="courses.culture1Text">学校长期开设书法、美术、舞蹈等课程，让学生在艺术训练中接触中华文化。</p>
             </article>
             <article class="feature-card accent-ink">
-              <h3>武术 / 音乐欣赏</h3>
-              <p>多元文化课程帮助学生在体验中建立节奏感、身体感和更立体的文化认知。</p>
+              <h3 data-i18n="courses.culture2Title">武术 / 音乐欣赏</h3>
+              <p data-i18n="courses.culture2Text">多元文化课程帮助学生在体验中建立节奏感、身体感和更立体的文化认知。</p>
             </article>
             <article class="feature-card accent-blush">
-              <h3>家长课程</h3>
-              <p>学校也曾为家长推出太极拳、瑜伽等课程，让陪读时间更有参与感和社区氛围。</p>
+              <h3 data-i18n="courses.culture3Title">家长课程</h3>
+              <p data-i18n="courses.culture3Text">学校也曾为家长推出太极拳、瑜伽等课程，让陪读时间更有参与感和社区氛围。</p>
             </article>
           </div>
         </section>
 
         <section class="backend-band">
           <div>
-            <p class="eyebrow">活动体系</p>
-            <h2>课堂之外，学生还在比赛、游学、夏令营和文化活动中继续使用中文。</h2>
+            <p class="eyebrow" data-i18n="courses.activityEyebrow">活动体系</p>
+            <h2 data-i18n="courses.activityTitle">课堂之外，学生还在比赛、游学、夏令营和文化活动中继续使用中文。</h2>
           </div>
           <ul class="admin-list">
-            <li>朗诵、书写、读后感等校内比赛持续推进表达训练</li>
-            <li>游园会、博物馆参访和文化活动拓展真实场景</li>
-            <li>夏令营和游学项目强化语言与文化的结合</li>
-            <li>这类内容后续适合做成后台独立栏目，方便学校按学期更新</li>
+            <li data-i18n="courses.activity1">朗诵、书写、读后感等校内比赛持续推进表达训练</li>
+            <li data-i18n="courses.activity2">游园会、博物馆参访和文化活动拓展真实场景</li>
+            <li data-i18n="courses.activity3">夏令营和游学项目强化语言与文化的结合</li>
+            <li data-i18n="courses.activity4">这类内容后续适合做成后台独立栏目，方便学校按学期更新</li>
           </ul>
         </section>
       </main>
       <footer class="footer">
-        <p>斯德哥尔摩瑞青中文学校<br />Kinaskolan Ruiqing i Stockholm</p>
-        <p>Södra Latins Gymnasium · Stockholm<br />rektor@kinaskolan.se</p>
+        <p><span data-i18n="footer.school">斯德哥尔摩瑞青中文学校</span><br />Kinaskolan Ruiqing i Stockholm</p>
+        <p><span data-i18n="footer.address">Södra Latins Gymnasium · Stockholm</span><br />rektor@kinaskolan.se</p>
       </footer>
     </div>
     <script src="script.js"></script>

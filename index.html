@@ -16,59 +16,64 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="index">
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href="index.html">
           <img class="brand-logo" src="logo-live.png" alt="瑞青中文学校 logo" />
           <span class="brand-copy">
             <strong>Kinaskolan</strong>
-            <small>斯德哥尔摩瑞青中文学校</small>
+            <small data-i18n="brand.school">斯德哥尔摩瑞青中文学校</small>
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-option active" type="button" data-lang="zh">中</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="sv">SV</button>
+        </div>
         <nav class="nav">
-          <a href="about.html">瑞青简介</a>
-          <a href="courses.html">课程体系</a>
-          <a href="news.html">新闻</a>
-          <a href="students.html">学生作品</a>
-          <a href="hsk.html">汉考信息</a>
-          <a href="contact.html">招生联系</a>
+          <a href="about.html" data-i18n="nav.about">瑞青简介</a>
+          <a href="courses.html" data-i18n="nav.courses">课程体系</a>
+          <a href="news.html" data-i18n="nav.news">新闻</a>
+          <a href="students.html" data-i18n="nav.students">学生作品</a>
+          <a href="hsk.html" data-i18n="nav.hsk">汉考信息</a>
+          <a href="contact.html" data-i18n="nav.contact">招生联系</a>
         </nav>
       </header>
 
       <main>
         <section class="hero hero-school">
           <div class="hero-copy">
-            <p class="eyebrow">斯德哥尔摩瑞青中文学校</p>
-            <h1>在瑞典持续传播中文与中华文化的周末学校。</h1>
-            <p class="hero-text">
+            <p class="eyebrow" data-i18n="index.eyebrow">斯德哥尔摩瑞青中文学校</p>
+            <h1 data-i18n="index.heroTitle">在瑞典持续传播中文与中华文化的周末学校。</h1>
+            <p class="hero-text" data-i18n="index.heroText">
               瑞典斯德哥尔摩瑞青中文学校（Kinaskolan Ruiqing i Stockholm）是瑞典青田同乡会下属的非盈利周末中文学校。
               学校位于 Södra Latins Gymnasium，高质量语言教学与舞蹈、美术、书法等文化课程并行发展。
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="about.html">学校简介</a>
-              <a class="button button-secondary" href="contact.html">报名咨询</a>
+              <a class="button button-primary" href="about.html" data-i18n="index.ctaAbout">学校简介</a>
+              <a class="button button-secondary" href="contact.html" data-i18n="index.ctaContact">报名咨询</a>
             </div>
             <div class="stat-grid">
               <article>
                 <strong>2008</strong>
-                <span>学校创办并迎来首批 150 名学生</span>
+                <span data-i18n="index.stat1">学校创办并迎来首批 150 名学生</span>
               </article>
               <article>
                 <strong>350-400+</strong>
-                <span>稳定在校学生规模</span>
+                <span data-i18n="index.stat2">稳定在校学生规模</span>
               </article>
               <article>
                 <strong>30</strong>
-                <span>专业汉语与对外汉语教师</span>
+                <span data-i18n="index.stat3">专业汉语与对外汉语教师</span>
               </article>
               <article>
                 <strong>2019</strong>
-                <span>重启北欧 HSK 考试中心</span>
+                <span data-i18n="index.stat4">重启北欧 HSK 考试中心</span>
               </article>
             </div>
           </div>
@@ -76,25 +81,25 @@
           <div class="hero-card hero-card-media">
             <img class="hero-image" src="campus.jpg" alt="Södra Latins Gymnasium 校园" />
             <div class="hero-panel">
-              <span>学校地址</span>
+              <span data-i18n="index.addressLabel">学校地址</span>
               <strong>Södra Latins Gymnasium, Stockholm</strong>
             </div>
             <div class="hero-grid">
               <article>
-                <h2>课程方向</h2>
-                <p>学前班、青少年班、成人班与文化班</p>
+                <h2 data-i18n="index.grid1Title">课程方向</h2>
+                <p data-i18n="index.grid1Text">学前班、青少年班、成人班与文化班</p>
               </article>
               <article>
-                <h2>师资团队</h2>
-                <p>30 名专业汉语与对外汉语教师</p>
+                <h2 data-i18n="index.grid2Title">师资团队</h2>
+                <p data-i18n="index.grid2Text">30 名专业汉语与对外汉语教师</p>
               </article>
               <article>
-                <h2>文化活动</h2>
-                <p>朗诵、书写、游园会、游学与夏令营</p>
+                <h2 data-i18n="index.grid3Title">文化活动</h2>
+                <p data-i18n="index.grid3Text">朗诵、书写、游园会、游学与夏令营</p>
               </article>
               <article>
-                <h2>汉考中心</h2>
-                <p>面向北欧学习者的 HSK 服务入口</p>
+                <h2 data-i18n="index.grid4Title">汉考中心</h2>
+                <p data-i18n="index.grid4Text">面向北欧学习者的 HSK 服务入口</p>
               </article>
             </div>
           </div>
@@ -102,86 +107,86 @@
 
         <section class="section-grid section-tight">
           <div class="section-heading">
-            <p class="eyebrow">Important</p>
-            <h2>首页只保留家长最先要找的内容</h2>
+            <p class="eyebrow" data-i18n="index.priorityEyebrow">Important</p>
+            <h2 data-i18n="index.priorityTitle">首页只保留家长最先要找的内容</h2>
           </div>
           <div class="home-priority-grid">
             <article class="priority-card">
-              <span>学校简介</span>
-              <h3>了解学校定位与办学历史</h3>
-              <p>快速了解学校背景、办学理念、校史与教师团队。</p>
-              <a href="about.html">进入简介</a>
+              <span data-i18n="index.card1Label">学校简介</span>
+              <h3 data-i18n="index.card1Title">了解学校定位与办学历史</h3>
+              <p data-i18n="index.card1Text">快速了解学校背景、办学理念、校史与教师团队。</p>
+              <a href="about.html" data-i18n="index.card1Cta">进入简介</a>
             </article>
             <article class="priority-card">
-              <span>课程体系</span>
-              <h3>查看班级设置与教材路径</h3>
-              <p>了解学前班、年级班、对外汉语班及文化课程结构。</p>
-              <a href="courses.html">查看课程</a>
+              <span data-i18n="index.card2Label">课程体系</span>
+              <h3 data-i18n="index.card2Title">查看班级设置与教材路径</h3>
+              <p data-i18n="index.card2Text">了解学前班、年级班、对外汉语班及文化课程结构。</p>
+              <a href="courses.html" data-i18n="index.card2Cta">查看课程</a>
             </article>
             <article class="priority-card">
-              <span>招生联系</span>
-              <h3>找到报名与咨询入口</h3>
-              <p>集中查看报名邮箱、学校地址与近期开班信息。</p>
-              <a href="contact.html">报名咨询</a>
+              <span data-i18n="index.card3Label">招生联系</span>
+              <h3 data-i18n="index.card3Title">找到报名与咨询入口</h3>
+              <p data-i18n="index.card3Text">集中查看报名邮箱、学校地址与近期开班信息。</p>
+              <a href="contact.html" data-i18n="index.card3Cta">报名咨询</a>
             </article>
             <article class="priority-card">
-              <span>HSK / 汉考</span>
-              <h3>考试信息与考点说明</h3>
-              <p>查看考试用途、联系方式与最近考试动态。</p>
-              <a href="hsk.html">查看汉考</a>
+              <span data-i18n="index.card4Label">HSK / 汉考</span>
+              <h3 data-i18n="index.card4Title">考试信息与考点说明</h3>
+              <p data-i18n="index.card4Text">查看考试用途、联系方式与最近考试动态。</p>
+              <a href="hsk.html" data-i18n="index.card4Cta">查看汉考</a>
             </article>
           </div>
         </section>
 
         <section class="section-grid section-tight" id="modules">
           <div class="section-heading">
-            <p class="eyebrow">Latest News</p>
-            <h2>最新新闻</h2>
-            <p>首页只展示最近几条最重要的学校动态，其余内容进入新闻页继续阅读。</p>
+            <p class="eyebrow" data-i18n="index.newsEyebrow">Latest News</p>
+            <h2 data-i18n="index.newsTitle">最新新闻</h2>
+            <p data-i18n="index.newsText">首页只展示最近几条最重要的学校动态，其余内容进入新闻页继续阅读。</p>
           </div>
           <div class="home-news-grid">
             <article class="news-card news-card-featured">
               <img src="news-ambassador.jpg" alt="第十二届大使奖活动现场" />
               <div class="news-card-copy">
                 <span>2026-05-28</span>
-                <h3>瑞青中文学校 2026 年第十二届“大使奖”优秀朗诵作品展演暨颁奖典礼</h3>
-                <p>
+                <h3 data-i18n="index.news1Title">瑞青中文学校 2026 年第十二届“大使奖”优秀朗诵作品展演暨颁奖典礼</h3>
+                <p data-i18n="index.news1Text">
                   声韵传文脉，童声诵中华。本届活动延续“课堂所学，舞台所现”的方向，
                   让海外学子在朗诵中感受中文之美与中华文化的厚度。
                 </p>
-                <a href="news-ambassador-2026.html">阅读全文</a>
+                <a href="news-ambassador-2026.html" data-i18n="common.readMore">阅读全文</a>
               </div>
             </article>
             <div class="home-news-list">
               <article class="news-brief">
                 <span>2026-05-26</span>
-                <h3>瑞青中文 2026 秋课程安排</h3>
-                <p>秋季课程安排已经公布，涵盖学期节奏、班级安排与家长最关心的核心信息。</p>
-                <a href="news-autumn-2026.html">阅读全文</a>
+                <h3 data-i18n="index.news2Title">瑞青中文 2026 秋课程安排</h3>
+                <p data-i18n="index.news2Text">秋季课程安排已经公布，涵盖学期节奏、班级安排与家长最关心的核心信息。</p>
+                <a href="news-autumn-2026.html" data-i18n="common.readMore">阅读全文</a>
               </article>
               <article class="news-brief">
                 <span>2026-05-22</span>
-                <h3>瑞青中文夏令营报名啦</h3>
-                <p>学校暑期活动开放报名，包含户外活动、中文游戏与集体篝火晚会。</p>
-                <a href="news-summercamp-2026.html">阅读全文</a>
+                <h3 data-i18n="index.news3Title">瑞青中文夏令营报名啦</h3>
+                <p data-i18n="index.news3Text">学校暑期活动开放报名，包含户外活动、中文游戏与集体篝火晚会。</p>
+                <a href="news-summercamp-2026.html" data-i18n="common.readMore">阅读全文</a>
               </article>
               <article class="news-brief">
                 <span>2026-05-21</span>
-                <h3>2026 斯京 HSK 春季考试圆满落幕</h3>
-                <p>来自北欧多国的考生参与考试，学校继续稳定承接考点服务工作。</p>
-                <a href="news-hsk-spring-2026.html">阅读全文</a>
+                <h3 data-i18n="index.news4Title">2026 斯京 HSK 春季考试圆满落幕</h3>
+                <p data-i18n="index.news4Text">来自北欧多国的考生参与考试，学校继续稳定承接考点服务工作。</p>
+                <a href="news-hsk-spring-2026.html" data-i18n="common.readMore">阅读全文</a>
               </article>
             </div>
           </div>
           <div class="section-actions">
-            <a class="button button-secondary" href="news.html">查看全部新闻</a>
+            <a class="button button-secondary" href="news.html" data-i18n="index.allNews">查看全部新闻</a>
           </div>
         </section>
       </main>
 
       <footer class="footer">
-        <p>斯德哥尔摩瑞青中文学校<br />Kinaskolan Ruiqing i Stockholm</p>
-        <p>Södra Latins Gymnasium · Stockholm<br />hsk@kinaskolan.se</p>
+        <p><span data-i18n="footer.school">斯德哥尔摩瑞青中文学校</span><br />Kinaskolan Ruiqing i Stockholm</p>
+        <p><span data-i18n="footer.address">Södra Latins Gymnasium · Stockholm</span><br />hsk@kinaskolan.se</p>
       </footer>
     </div>
 

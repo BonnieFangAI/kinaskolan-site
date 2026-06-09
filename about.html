@@ -12,35 +12,40 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body data-page="about">
     <div class="site-shell site-shell-page">
       <header class="topbar">
         <a class="brand" href="index.html">
           <img class="brand-logo" src="logo-live.png" alt="瑞青中文学校 logo" />
           <span class="brand-copy">
             <strong>Kinaskolan</strong>
-            <small>斯德哥尔摩瑞青中文学校</small>
+            <small data-i18n="brand.school">斯德哥尔摩瑞青中文学校</small>
           </span>
         </a>
         <button class="nav-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
           <span></span>
           <span></span>
         </button>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button class="lang-option active" type="button" data-lang="zh">中</button>
+          <button class="lang-option" type="button" data-lang="en">EN</button>
+          <button class="lang-option" type="button" data-lang="sv">SV</button>
+        </div>
         <nav class="nav">
-          <a class="active" href="about.html">瑞青简介</a>
-          <a href="courses.html">课程体系</a>
-          <a href="news.html">新闻</a>
-          <a href="students.html">学生作品</a>
-          <a href="hsk.html">汉考信息</a>
-          <a href="contact.html">招生联系</a>
+          <a class="active" href="about.html" data-i18n="nav.about">瑞青简介</a>
+          <a href="courses.html" data-i18n="nav.courses">课程体系</a>
+          <a href="news.html" data-i18n="nav.news">新闻</a>
+          <a href="students.html" data-i18n="nav.students">学生作品</a>
+          <a href="hsk.html" data-i18n="nav.hsk">汉考信息</a>
+          <a href="contact.html" data-i18n="nav.contact">招生联系</a>
         </nav>
       </header>
 
       <main class="page-layout">
         <section class="page-hero">
-          <p class="eyebrow">瑞青简介</p>
-          <h1>这是斯德哥尔摩瑞青中文学校。</h1>
-          <p>
+          <p class="eyebrow" data-i18n="about.eyebrow">瑞青简介</p>
+          <h1 data-i18n="about.heroTitle">这是斯德哥尔摩瑞青中文学校。</h1>
+          <p data-i18n="about.heroText">
             我们，是一群涌着火样热忱致力于海外中文教育事业的华人；也是一群怀着无限赤诚，
             执着传播华夏悠久文化的华人。
           </p>
@@ -48,16 +53,18 @@
 
         <section class="content-split">
           <article class="panel-card panel-card-rich">
-            <span>学校介绍</span>
-            <h2>位于 Södra Latins Gymnasium 的周末中文学校</h2>
-            <p>
-              瑞典斯德哥尔摩瑞青中文学校（Kinaskolan Ruiqing i Stockholm）是瑞典青田同乡会下属的非盈利周末中文学校。
-              每周六，来自不同文化背景的学生来到这里学习汉语，也在舞蹈、美术、书法等文化课程中理解中华文化。
-            </p>
-            <p>
-              学校一流的教学设施为学生提供高质量学习环境。清晨教室里传来朗朗书声，午后音乐厅、舞蹈房与活动教室依然活跃，
-              形成语言学习与文化体验并重的节奏。
-            </p>
+            <span data-i18n="about.introLabel">学校介绍</span>
+            <h2 data-i18n="about.introTitle">位于 Södra Latins Gymnasium 的周末中文学校</h2>
+            <div data-i18n-html="about.introBody">
+              <p>
+                瑞典斯德哥尔摩瑞青中文学校（Kinaskolan Ruiqing i Stockholm）是瑞典青田同乡会下属的非盈利周末中文学校。
+                每周六，来自不同文化背景的学生来到这里学习汉语，也在舞蹈、美术、书法等文化课程中理解中华文化。
+              </p>
+              <p>
+                学校一流的教学设施为学生提供高质量学习环境。清晨教室里传来朗朗书声，午后音乐厅、舞蹈房与活动教室依然活跃，
+                形成语言学习与文化体验并重的节奏。
+              </p>
+            </div>
           </article>
           <aside class="media-card">
             <img src="campus.jpg" alt="Södra Latins Gymnasium" />
@@ -66,92 +73,92 @@
 
         <section class="stack-grid">
           <article class="panel-card">
-            <span>办学理念</span>
-            <h2>十年制中文教育系统</h2>
-            <p>设置专业对口海外出生、长大的孩子的十年制中文教育系统，以培养中文学习兴趣为起点，以承传中华文化为核心。</p>
+            <span data-i18n="about.missionLabel">办学理念</span>
+            <h2 data-i18n="about.missionTitle">十年制中文教育系统</h2>
+            <p data-i18n="about.missionText">设置专业对口海外出生、长大的孩子的十年制中文教育系统，以培养中文学习兴趣为起点，以承传中华文化为核心。</p>
           </article>
           <article class="panel-card">
-            <span>师资团队</span>
-            <h2>30 名专业教师</h2>
-            <p>学校现任专业汉语和对外汉语教师 30 名，既有教学理论与经验，也保持高度教学热情与责任感。</p>
+            <span data-i18n="about.facultyLabel">师资团队</span>
+            <h2 data-i18n="about.facultyTitle">30 名专业教师</h2>
+            <p data-i18n="about.facultyText">学校现任专业汉语和对外汉语教师 30 名，既有教学理论与经验，也保持高度教学热情与责任感。</p>
           </article>
           <article class="panel-card">
-            <span>课程体系</span>
-            <h2>学前班、青少年班、成人班</h2>
-            <p>课程覆盖不同年龄段，每学期两次对学生学习情况和教师教学质量进行评估，强调系统性、连续性与教学质量。</p>
+            <span data-i18n="about.programsLabel">课程体系</span>
+            <h2 data-i18n="about.programsTitle">学前班、青少年班、成人班</h2>
+            <p data-i18n="about.programsText">课程覆盖不同年龄段，每学期两次对学生学习情况和教师教学质量进行评估，强调系统性、连续性与教学质量。</p>
           </article>
         </section>
 
         <section class="section-grid">
           <div class="section-heading">
-            <p class="eyebrow">教师团队</p>
-            <h2>老师介绍与教学团队</h2>
-            <p>瑞青的教师团队长期围绕海外中文教育、教材研究、课堂方法和文化课程持续打磨，形成了稳定的教学梯队。</p>
+            <p class="eyebrow" data-i18n="about.teamEyebrow">教师团队</p>
+            <h2 data-i18n="about.teamTitle">老师介绍与教学团队</h2>
+            <p data-i18n="about.teamText">瑞青的教师团队长期围绕海外中文教育、教材研究、课堂方法和文化课程持续打磨，形成了稳定的教学梯队。</p>
           </div>
           <div class="feature-grid">
             <article class="feature-card accent-gold">
-              <h3>王梅霜校长</h3>
-              <p>负责学校整体教学方向与校务统筹，长期推进课程体系建设、汉考中心工作与校际交流活动。</p>
+              <h3 data-i18n="about.teacher1Title">王梅霜校长</h3>
+              <p data-i18n="about.teacher1Text">负责学校整体教学方向与校务统筹，长期推进课程体系建设、汉考中心工作与校际交流活动。</p>
             </article>
             <article class="feature-card accent-red">
-              <h3>刘瑞侠副校长</h3>
-              <p>参与教学管理与课程推进，在课堂组织、活动展演和高年级内容表达上承担重要协调工作。</p>
+              <h3 data-i18n="about.teacher2Title">刘瑞侠副校长</h3>
+              <p data-i18n="about.teacher2Text">参与教学管理与课程推进，在课堂组织、活动展演和高年级内容表达上承担重要协调工作。</p>
             </article>
             <article class="feature-card accent-blue">
-              <h3>陈曦副校长</h3>
-              <p>参与教学设计与课程拓展，兼顾课堂教学与文化类内容组织，持续推动学校教学质量提升。</p>
+              <h3 data-i18n="about.teacher3Title">陈曦副校长</h3>
+              <p data-i18n="about.teacher3Text">参与教学设计与课程拓展，兼顾课堂教学与文化类内容组织，持续推动学校教学质量提升。</p>
             </article>
             <article class="feature-card accent-green">
-              <h3>低年级教学组</h3>
-              <p>姜玲、王仪卿、付军等老师在启蒙识字、字卡游戏、朗读训练和双语课堂方面积累了成熟方法。</p>
+              <h3 data-i18n="about.teacher4Title">低年级教学组</h3>
+              <p data-i18n="about.teacher4Text">姜玲、王仪卿、付军等老师在启蒙识字、字卡游戏、朗读训练和双语课堂方面积累了成熟方法。</p>
             </article>
             <article class="feature-card accent-ink">
-              <h3>中高年级教学组</h3>
-              <p>贾海燕、杨婕、颜佳、陈月辉等老师围绕诗歌、神话、哲学、科技等主题展开分层教学。</p>
+              <h3 data-i18n="about.teacher5Title">中高年级教学组</h3>
+              <p data-i18n="about.teacher5Text">贾海燕、杨婕、颜佳、陈月辉等老师围绕诗歌、神话、哲学、科技等主题展开分层教学。</p>
             </article>
             <article class="feature-card accent-blush">
-              <h3>教研与交流</h3>
-              <p>学校教师团队长期通过听课、培训、团建与校际交流分享教学法，持续优化课堂体验与教学成果。</p>
+              <h3 data-i18n="about.teacher6Title">教研与交流</h3>
+              <p data-i18n="about.teacher6Text">学校教师团队长期通过听课、培训、团建与校际交流分享教学法，持续优化课堂体验与教学成果。</p>
             </article>
           </div>
         </section>
 
         <section class="section-grid">
           <div class="section-heading">
-            <p class="eyebrow">校史</p>
-            <h2>学校发展历程</h2>
+            <p class="eyebrow" data-i18n="about.historyEyebrow">校史</p>
+            <h2 data-i18n="about.historyTitle">学校发展历程</h2>
           </div>
           <div class="timeline">
             <article class="timeline-item">
               <strong>2008</strong>
-              <p>学校开门第一天迎来首批 150 名学生，之后逐步成长为斯德哥尔摩重要的中华文化传播平台。</p>
+              <p data-i18n="about.history2008">学校开门第一天迎来首批 150 名学生，之后逐步成长为斯德哥尔摩重要的中华文化传播平台。</p>
             </article>
             <article class="timeline-item">
               <strong>2011</strong>
-              <p>获得中国国务院侨办颁发的“华文教育示范学校”荣誉。</p>
+              <p data-i18n="about.history2011">获得中国国务院侨办颁发的“华文教育示范学校”荣誉。</p>
             </article>
             <article class="timeline-item">
               <strong>2015</strong>
-              <p>承办“华文教育·名师巡讲团”斯京华文教师培训活动，持续加强校际交流与教师成长。</p>
+              <p data-i18n="about.history2015">承办“华文教育·名师巡讲团”斯京华文教师培训活动，持续加强校际交流与教师成长。</p>
             </article>
             <article class="timeline-item">
               <strong>2016</strong>
-              <p>启用由北京大学出版社出版的新双双中文教材，尝试解决海外华裔子弟中文学习兴趣递减问题。</p>
+              <p data-i18n="about.history2016">启用由北京大学出版社出版的新双双中文教材，尝试解决海外华裔子弟中文学习兴趣递减问题。</p>
             </article>
             <article class="timeline-item">
               <strong>2019</strong>
-              <p>与中国汉考国际合作，在瑞典首都重启北欧地区国际汉语能力标准化考试中心。</p>
+              <p data-i18n="about.history2019">与中国汉考国际合作，在瑞典首都重启北欧地区国际汉语能力标准化考试中心。</p>
             </article>
             <article class="timeline-item">
               <strong>2021</strong>
-              <p>在经历三学期线上教学后，恢复 Södra Latin 校区线下实体课堂教学。</p>
+              <p data-i18n="about.history2021">在经历三学期线上教学后，恢复 Södra Latin 校区线下实体课堂教学。</p>
             </article>
           </div>
         </section>
       </main>
       <footer class="footer">
-        <p>斯德哥尔摩瑞青中文学校<br />Kinaskolan Ruiqing i Stockholm</p>
-        <p>Södra Latins Gymnasium · Stockholm<br />rektor@kinaskolan.se</p>
+        <p><span data-i18n="footer.school">斯德哥尔摩瑞青中文学校</span><br />Kinaskolan Ruiqing i Stockholm</p>
+        <p><span data-i18n="footer.address">Södra Latins Gymnasium · Stockholm</span><br />rektor@kinaskolan.se</p>
       </footer>
     </div>
     <script src="script.js"></script>

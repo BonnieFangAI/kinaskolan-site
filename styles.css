@@ -124,6 +124,32 @@ a {
   background: var(--ink);
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.lang-option {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lang-option.active {
+  background: rgba(24, 22, 26, 0.08);
+  color: var(--ink);
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -731,6 +757,10 @@ a {
   .nav-toggle {
     display: block;
     margin-left: auto;
+  }
+
+  .lang-switch {
+    order: 3;
   }
 
   .nav {
