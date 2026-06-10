@@ -33,19 +33,16 @@ const translations = {
     "index.grid3Title": "文化活动",
     "index.grid3Text": "朗诵、书写、游园会、游学与夏令营",
     "index.grid4Title": "汉考中心",
-    "index.grid4Text": "面向北欧学习者的 HSK 服务入口",
-    "index.priorityEyebrow": "学校概览",
-    "index.priorityTitle": "家长常用入口",
-    "index.card1Label": "学校简介",
-    "index.card1Title": "了解学校定位与办学历史",
-    "index.card1Text": "快速了解学校背景、办学理念、校史与教师团队。",
-    "index.card1Cta": "进入简介",
+    "index.grid4Text": "面向北欧学习者的 HSK 服务与考试支持",
+    "index.priorityEyebrow": "学校信息",
+    "index.priorityTitle": "先了解学校，再看课程与新闻",
+    "index.priorityText": "瑞青中文学校是一所长期扎根斯德哥尔摩的周末中文学校。学校以稳定课程体系、专业师资和真实校园活动为基础，让学生在语言学习之外，也持续建立对中华文化的理解与亲近感。",
     "index.card2Label": "课程体系",
     "index.card2Title": "查看班级设置与教材路径",
     "index.card2Text": "了解学前班、年级班、对外汉语班及文化课程结构。",
     "index.card2Cta": "查看课程",
     "index.card3Label": "招生联系",
-    "index.card3Title": "找到报名与咨询入口",
+    "index.card3Title": "查看报名与咨询信息",
     "index.card3Text": "集中查看报名邮箱、学校地址与近期开班信息。",
     "index.card3Cta": "报名咨询",
     "index.card4Label": "HSK / 汉考",
@@ -204,258 +201,31 @@ const translations = {
     "hsk.related3Text": "学校持续为不同语言背景的学习者提供清晰的考试信息与服务支持。",
     "hsk.footerLabel": "HSK Test Center",
     "contact.eyebrow": "招生联系",
-    "contact.heroTitle": "报名、课程咨询与考试联系入口",
-    "contact.heroText": "这里集中展示家长最常用的报名、课程咨询与考试联系信息，方便快速查找学校地址、联系邮箱和近期重要通知。",
+    "contact.heroTitle": "招生、课程咨询与汉考联系",
+    "contact.heroText": "这里集中呈现学校地址、招生咨询邮箱、汉考联系方式与近期重要通知，方便家长快速获取关键信息。",
     "contact.card1Label": "学校地址",
     "contact.card1Text": "学校目前在斯德哥尔摩 Södra Latins Gymnasium 开展周末教学与相关活动。",
     "contact.card2Label": "报名咨询",
-    "contact.card2Text": "近期开课安排和招生通知中已使用该邮箱作为报名联系入口，适合承接新生咨询。",
+    "contact.card2Text": "近期开课安排与招生通知均使用该邮箱作为统一联系邮箱，便于承接新生咨询。",
     "contact.card3Label": "HSK 联系",
     "contact.card3Text": "汉考相关问题可通过考试专用邮箱联系，便于把学校教学咨询与考试事务区分开。",
     "contact.introLabel": "近期招生信息",
     "contact.introTitle": "学校会按学期持续发布开班和报名通知",
-    "contact.introBody": `<p>学校每学期都会发布课程安排、夏令营、基础班招生与文化班招生等信息，方便家长及时了解开课节奏和报名时间。</p><p>本页集中整理学校常用联系入口与近期重点信息，帮助家长更快完成咨询、报名和考试相关联系。</p>`,
-    "contact.linksEyebrow": "近期入口",
+    "contact.introBody": `<p>学校每学期都会发布课程安排、夏令营、基础班招生与文化班招生等信息，方便家长及时了解开课节奏和报名时间。</p><p>本页集中整理学校常用联系信息与近期重点通知，帮助家长更快完成咨询、报名和考试相关联系。</p>`,
+    "contact.linksEyebrow": "近期信息",
     "contact.linksTitle": "近一年仍有参考价值的招生和学期信息",
     "contact.link1Title": "2026 秋课程安排",
-    "contact.link1Text": "新学期课程通知入口，适合家长查看学期安排和课程节奏。",
+    "contact.link1Text": "新学期课程通知汇总了学期安排与课程节奏，方便家长及时查看。",
     "contact.link2Title": "瑞青中文夏令营报名",
-    "contact.link2Text": "学校暑期活动报名入口，便于家长查看时间安排、参与方式与活动说明。",
+    "contact.link2Text": "学校暑期活动通知包含时间安排、参与方式与活动说明，便于家长统一了解。",
     "contact.link3Title": "2026 春季安排",
     "contact.link3Text": "保留春季课程与报名邮箱等关键信息，方便家长回看学期安排。",
-    "contact.backendEyebrow": "常用信息",
-    "contact.backendTitle": "家长最常查看的学校信息集中在这里。",
+    "contact.backendEyebrow": "联系与通知",
+    "contact.backendTitle": "学校常用联系信息与近期安排集中在这里。",
     "contact.backend1": "学校地址与校园上课地点",
     "contact.backend2": "报名与课程咨询邮箱",
-    "contact.backend3": "HSK 考试联系入口",
+    "contact.backend3": "HSK 考试联系信息",
     "contact.backend4": "近期学期安排与活动报名信息"
-  },
-  en: {
-    "brand.school": "Ruiqing Chinese School Stockholm",
-    "nav.about": "About",
-    "nav.courses": "Courses",
-    "nav.news": "News",
-    "nav.students": "Student Work",
-    "nav.hsk": "HSK Info",
-    "nav.contact": "Admissions",
-    "footer.school": "Ruiqing Chinese School Stockholm",
-    "footer.address": "Södra Latins Gymnasium · Stockholm",
-    "common.readMore": "Read more",
-    "common.viewActivity": "View activity",
-    "common.viewUpdate": "View update",
-    "index.eyebrow": "Ruiqing Chinese School Stockholm",
-    "index.heroTitle": "A weekend school in Sweden dedicated to Chinese language and culture.",
-    "index.heroText": "Ruiqing Chinese School Stockholm is a non-profit weekend Chinese school under the Qingtian Association in Sweden. Located at Södra Latins Gymnasium, the school combines quality language teaching with dance, art and calligraphy.",
-    "index.ctaAbout": "About the School",
-    "index.ctaContact": "Admissions",
-    "index.stat1": "Founded with the first 150 students",
-    "index.stat2": "Stable enrollment of 350-400+ students",
-    "index.stat3": "Professional Chinese and CSL teachers",
-    "index.stat4": "HSK center relaunched in the Nordics",
-    "index.addressLabel": "Campus",
-    "index.grid1Title": "Course Path",
-    "index.grid1Text": "Preschool, youth, adult and cultural classes",
-    "index.grid2Title": "Faculty",
-    "index.grid2Text": "30 professional Chinese language teachers",
-    "index.grid3Title": "Cultural Life",
-    "index.grid3Text": "Recitation, calligraphy, festivals, study trips and camp",
-    "index.grid4Title": "HSK Center",
-    "index.grid4Text": "HSK services for learners across the Nordics",
-    "index.priorityEyebrow": "School Overview",
-    "index.priorityTitle": "Common Family Links",
-    "index.card1Label": "About",
-    "index.card1Title": "School identity and history",
-    "index.card1Text": "Learn the background, mission, history and faculty of the school.",
-    "index.card1Cta": "Open page",
-    "index.card2Label": "Courses",
-    "index.card2Title": "Classes and learning path",
-    "index.card2Text": "See preschool, grade-based, CSL and cultural course structure.",
-    "index.card2Cta": "View courses",
-    "index.card3Label": "Admissions",
-    "index.card3Title": "Registration and contact",
-    "index.card3Text": "Find admission email, location and recent enrollment notices.",
-    "index.card3Cta": "Contact us",
-    "index.card4Label": "HSK",
-    "index.card4Title": "Exam information and center details",
-    "index.card4Text": "See exam purpose, contact information and recent updates.",
-    "index.card4Cta": "View HSK",
-    "index.newsEyebrow": "Latest News",
-    "index.newsTitle": "Latest News",
-    "index.newsText": "See recent school activities, course notices and campus updates. More stories are available on the news page.",
-    "index.news1Title": "2026 Ambassador Award Outstanding Recitation Showcase and Ceremony",
-    "index.news1Text": "This event continued the idea of bringing classroom learning to the stage, allowing overseas students to feel the beauty and depth of Chinese through recitation.",
-    "index.news2Title": "Ruiqing 2026 Autumn Course Plan",
-    "index.news2Text": "The autumn plan is now published, covering term rhythm, class structure and the information families care about most.",
-    "index.news3Title": "Summer Camp Registration Is Open",
-    "index.news3Text": "The school has opened summer registration with outdoor activities, Chinese games and a shared campfire evening.",
-    "index.news4Title": "2026 Stockholm Spring HSK Successfully Concluded",
-    "index.news4Text": "Candidates from several Nordic countries took part as the school continued to provide stable HSK center services.",
-    "index.allNews": "View all news",
-    "about.eyebrow": "About",
-    "about.heroTitle": "This is Ruiqing Chinese School Stockholm.",
-    "about.heroText": "We are a team deeply committed to overseas Chinese education and to sharing the richness of Chinese culture with sincerity and long-term dedication.",
-    "about.introLabel": "School Profile",
-    "about.introTitle": "A weekend Chinese school at Södra Latins Gymnasium",
-    "about.introBody": `<p>Ruiqing Chinese School Stockholm is a non-profit weekend Chinese school under the Qingtian Association in Sweden. Every Saturday, students from different language and cultural backgrounds gather here to learn Chinese and experience Chinese culture through dance, art and calligraphy.</p><p>The school benefits from strong teaching facilities and a calm learning environment. Morning classrooms are filled with reading practice, while the music hall, dance studio and activity rooms stay active throughout the day.</p>`,
-    "about.missionLabel": "Mission",
-    "about.missionTitle": "A ten-year Chinese learning pathway",
-    "about.missionText": "The school has built a long-term system designed for children growing up overseas, with interest in Chinese as the starting point and cultural inheritance as the core.",
-    "about.facultyLabel": "Faculty",
-    "about.facultyTitle": "30 professional teachers",
-    "about.facultyText": "The school has 30 teachers in Chinese language and Chinese as a second language, combining training, experience and strong teaching commitment.",
-    "about.programsLabel": "Programs",
-    "about.programsTitle": "Preschool, youth and adult classes",
-    "about.programsText": "Programs cover multiple age groups, with twice-per-semester evaluation of student progress and teaching quality to maintain continuity and standards.",
-    "about.teamEyebrow": "Teaching Team",
-    "about.teamTitle": "Faculty and school leadership",
-    "about.teamText": "Ruiqing's teaching team has steadily refined overseas Chinese education, materials research, classroom method and cultural programming to form a stable academic ladder.",
-    "about.teacher1Title": "Principal Wang Meishuang",
-    "about.teacher1Text": "Leads the school's overall academic direction and operations, while advancing curriculum development, HSK center work and inter-school exchange.",
-    "about.teacher2Title": "Vice Principal Liu Ruixia",
-    "about.teacher2Text": "Supports teaching management and program development, especially classroom coordination, performances and upper-grade expression work.",
-    "about.teacher3Title": "Vice Principal Chen Xi",
-    "about.teacher3Text": "Works on teaching design and curriculum expansion, balancing classroom instruction with cultural programming and quality improvement.",
-    "about.teacher4Title": "Lower Grade Team",
-    "about.teacher4Text": "Teachers such as Jiang Ling, Wang Yiqing and Fu Jun have built mature approaches in early literacy, flashcards, reading aloud and bilingual classrooms.",
-    "about.teacher5Title": "Middle and Upper Grade Team",
-    "about.teacher5Text": "Teachers such as Jia Haiyan, Yang Jie, Yan Jia and Chen Yuehui use layered teaching around poetry, mythology, philosophy and science topics.",
-    "about.teacher6Title": "Research and Exchange",
-    "about.teacher6Text": "The faculty continuously improves classroom experience through observations, training, team building and exchange with peer schools.",
-    "about.historyEyebrow": "History",
-    "about.historyTitle": "School milestones",
-    "about.history2008": "The school welcomed its first 150 students on opening day and gradually became an important platform for Chinese culture in Stockholm.",
-    "about.history2011": "Received the title of Demonstration School for Chinese Education from the Overseas Chinese Affairs Office of the State Council of China.",
-    "about.history2015": "Hosted the Chinese Education Master Teachers Tour training event in Stockholm, strengthening exchange and teacher development.",
-    "about.history2016": "Introduced the Xīn Shuāngshuāng Chinese textbooks published by Peking University Press to address declining motivation among overseas Chinese learners.",
-    "about.history2019": "Worked with Chinese Testing International to relaunch a standardized HSK center in the Nordic region from Stockholm.",
-    "about.history2021": "After three semesters of online learning, the school resumed in-person teaching at the Södra Latin campus.",
-    "courses.eyebrow": "Courses",
-    "courses.heroTitle": "A structured Chinese curriculum supported by culture and activities.",
-    "courses.heroText": "The school has developed a model centered on curriculum, supported by cultural learning and activities, balancing language growth, cultural understanding and long-term interest.",
-    "courses.introLabel": "What Makes Ruiqing Special",
-    "courses.introTitle": "A ten-year Chinese learning system",
-    "courses.introBody": `<p>Since its founding in 2008, the school has continued to refine its overseas Chinese education pathway for students of different ages and language backgrounds, from preschool to youth, CSL and adult classes.</p><p>The goal is not short-term drilling, but long-term growth in literacy, reading, writing, expression and cultural understanding.</p>`,
-    "courses.classLabel": "Class Structure",
-    "courses.class1Title": "Preschool",
-    "courses.class1Text": "Designed mainly for children aged 4-5, using songs, stories and early literacy to build listening, speaking and study habits.",
-    "courses.class2Title": "Lower, Middle and Upper Grades",
-    "courses.class2Text": "For children in Chinese and multilingual families, with emphasis on structured literacy, reading comprehension and classroom expression.",
-    "courses.class3Title": "Youth / Adult / CSL Classes",
-    "courses.class3Text": "Supports overseas youth, local Swedish learners and adults with content closer to practical communication and cultural understanding.",
-    "courses.materialsEyebrow": "Materials and Teaching",
-    "courses.materialsTitle": "Core textbooks and leveled learning paths",
-    "courses.material1Title": "Preschool",
-    "courses.material1Text": "Uses school-developed materials and early-learning content to build listening, speaking, literacy and classroom participation.",
-    "courses.material2Title": "Grade 1 to Lower Secondary",
-    "courses.material2Text": "Uses the Xīn Shuāngshuāng Chinese series together with age-based content such as idioms, geography and classical stories.",
-    "courses.material3Title": "Chinese as a Second Language",
-    "courses.material3Text": "Uses Happy Chinese and standard HSK materials for non-native learners progressing step by step.",
-    "courses.cultureEyebrow": "Cultural Courses",
-    "courses.cultureTitle": "Beyond language learning, the school also values aesthetics, expression and cultural experience.",
-    "courses.culture1Title": "Calligraphy / Art / Dance",
-    "courses.culture1Text": "Long-term arts classes help students connect with Chinese culture through creative practice.",
-    "courses.culture2Title": "Martial Arts / Music Appreciation",
-    "courses.culture2Text": "Diverse cultural courses build rhythm, physical awareness and a more dimensional understanding of culture.",
-    "courses.culture3Title": "Parent Courses",
-    "courses.culture3Text": "The school has also offered taiji and yoga for parents, making waiting time more participatory and community-oriented.",
-    "courses.activityEyebrow": "Activities",
-    "courses.activityTitle": "Outside class, students continue using Chinese through competitions, study trips, summer camp and cultural events.",
-    "courses.activity1": "Recitation, handwriting and book-review contests keep expression training active",
-    "courses.activity2": "Festivals, museum visits and cultural events extend learning into real contexts",
-    "courses.activity3": "Summer camp and study trips strengthen the connection between language and culture",
-    "courses.activity4": "Ongoing activities help students carry classroom learning into real communication and cultural experience",
-    "news.eyebrow": "School News",
-    "news.heroTitle": "Recent school events, course notices and campus updates",
-    "news.heroText": "This page presents important news, course updates, school events and admissions-related information from the past year.",
-    "news.item1Title": "2026 Ambassador Award Outstanding Recitation Showcase and Ceremony",
-    "news.item1Text": "In late May, the school once again connected classroom learning with the stage, letting students show the beauty of Chinese through recitation while families witnessed their growth.",
-    "news.item2Title": "A Peace Journey through Chinese: Finland Study Trip",
-    "news.item2Text": "Students used Chinese to record history and discuss peace, turning the language into a tool for understanding the world beyond the classroom.",
-    "news.item3Title": "Ruiqing 2026 Autumn Course Plan",
-    "news.item3Text": "The autumn term schedule is now available so families can understand the pace and structure of the new semester.",
-    "news.item4Title": "Summer Camp Registration Is Open",
-    "news.item4Text": "The school's summer activities are now open for registration, with outdoor activities, Chinese games and a campfire evening.",
-    "news.item5Title": "Chinese Proficiency Exam at Stockholm Center Completed Successfully",
-    "news.item5Text": "The HSK exam in Stockholm welcomed candidates from different Nordic countries and learning backgrounds.",
-    "news.item6Title": "2026 Stockholm Spring HSK Successfully Concluded",
-    "news.item6Text": "Candidates from different countries and learning backgrounds gathered in Stockholm as the school completed the spring HSK administration smoothly.",
-    "news.item7Title": "12th Ambassador Award School Recitation Contest",
-    "news.item7Text": "The campus-wide recitation event extended the teaching path from classroom to stage and prepared the way for the final showcase and ceremony.",
-    "news.item8Title": "2026 Spring Term Information",
-    "news.item8Text": "The recent archive still keeps the spring term schedule and admissions contact information available for families to review.",
-    "news.footerNote": "School news archive from the past year",
-    "students.eyebrow": "Student Work",
-    "students.heroTitle": "Student writing, competitions and activity highlights",
-    "students.heroText": "This section brings together reading and writing outcomes as well as highlights from recitation, calligraphy and study trips.",
-    "students.introLabel": "Student Work",
-    "students.introTitle": "Reading and writing outcomes",
-    "students.introText1": "The school consistently encourages students to deepen Chinese expression through reading and writing, building a stable archive of student work.",
-    "students.introText2": "This section collects book reviews, writing exercises, competition entries and activity outcomes to show real growth in language learning.",
-    "students.readingLabel": "Reading Work",
-    "students.work1Title": "Review of The Hotel Mystery",
-    "students.work1Text": "By Chen Ruiqi, age 11. Through reading and writing practice, students learn to express ideas and responses more fully.",
-    "students.work2Title": "There Is a Small Shop by the Clouds",
-    "students.work2Text": "Reading in Chinese strengthens comprehension, summarizing and expression while linking language study to emotional experience.",
-    "students.work3Title": "Minecraft: The Legend of the Ghost",
-    "students.work3Text": "Student work reflects stronger Chinese ability while also recording personal views of story, character and world-building.",
-    "students.eventsEyebrow": "School Achievements",
-    "students.eventsTitle": "Competitions and activities are also part of student growth",
-    "students.event1Title": "12th Ambassador Award Recitation Contest",
-    "students.event1Text": "The recitation contest brings classroom reading, stage expression and Chinese culture together.",
-    "students.event2Title": "Handwriting and Calligraphy Contest",
-    "students.event2Text": "Writing and calligraphy activities help students understand the structure and aesthetics of Chinese characters.",
-    "students.event3Title": "Festival Days / Study Trips / Summer Camp",
-    "students.event3Text": "School activities extend language learning into real-life settings and deepen participation and cultural experience.",
-    "students.footerNote": "Student work and activity highlights",
-    "students.footerSub": "Reading, writing and school activity section",
-    "hsk.eyebrow": "HSK / Test Center",
-    "hsk.heroTitle": "HSK Test Center Information",
-    "hsk.heroText": "Ruiqing Chinese School provides HSK-related guidance, registration information and contact details for learners across the Nordic region.",
-    "hsk.infoLabel": "Exam Overview",
-    "hsk.infoTitle": "Ruiqing Chinese School / Södra Latins Gymnasium",
-    "hsk.infoBody": `<p>Taking the HSK helps learners understand their current Chinese level. It can also support applications for study abroad and scholarships, and serve as proof of language ability in employment.</p><p>Registration: official website <a href="https://www.chinesetest.cn">www.chinesetest.cn</a></p><p>Contact: hsk@kinaskolan.se / Principal Wang Meishuang 0707-203516</p>`,
-    "hsk.useLabel": "Why Take HSK",
-    "hsk.use1Title": "Learning Assessment",
-    "hsk.use1Text": "Students can better understand their current level and use the result for further study planning and teacher guidance.",
-    "hsk.use2Title": "Study Abroad and Scholarships",
-    "hsk.use2Text": "When applying for study opportunities in China and related scholarships, HSK results are often an important reference.",
-    "hsk.use3Title": "Career Development",
-    "hsk.use3Text": "In government offices and international companies, HSK can be used as evidence for recruitment, salary review and promotion.",
-    "hsk.relatedEyebrow": "Related Updates",
-    "hsk.relatedTitle": "Recent exam-related information",
-    "hsk.related1Title": "2026 Stockholm HSK Notice",
-    "hsk.related1Text": "Exam dates, level arrangements and registration links have already been published so candidates can plan registration and preparation in time.",
-    "hsk.related2Title": "2026 Spring Exam Successfully Completed",
-    "hsk.related2Text": "The school completed the spring exam administration smoothly, showing its real service capacity as an HSK center in the Nordic region.",
-    "hsk.related3Title": "Stockholm Center Completed Successfully",
-    "hsk.related3Text": "The school continues to provide clear exam information and support for learners from different language backgrounds.",
-    "hsk.footerLabel": "HSK Test Center",
-    "contact.eyebrow": "Admissions",
-    "contact.heroTitle": "Registration, course inquiries and exam contact",
-    "contact.heroText": "This page gathers the contact details families use most often, making it easy to find the school address, email contacts and important recent notices.",
-    "contact.card1Label": "School Address",
-    "contact.card1Text": "The school currently runs weekend teaching and related activities at Södra Latins Gymnasium in Stockholm.",
-    "contact.card2Label": "Admissions Contact",
-    "contact.card2Text": "Recent course notices and enrollment updates already use this email as the contact point for new families.",
-    "contact.card3Label": "HSK Contact",
-    "contact.card3Text": "Questions related to HSK can be handled via the dedicated exam email, separate from general school inquiries.",
-    "contact.introLabel": "Recent Admissions Information",
-    "contact.introTitle": "The school publishes enrollment and term notices every semester",
-    "contact.introBody": `<p>Each term, the school publishes course plans, summer camp information, beginner admissions and cultural class enrollment details so families can keep track of schedules and registration dates.</p><p>This page brings together the most useful contact points and recent notices so families can complete inquiries, registration and exam-related communication more easily.</p>`,
-    "contact.linksEyebrow": "Useful Recent Links",
-    "contact.linksTitle": "Admissions and term information still worth reviewing",
-    "contact.link1Title": "2026 Autumn Course Plan",
-    "contact.link1Text": "A practical entry for parents who want to see the semester structure and course rhythm.",
-    "contact.link2Title": "Summer Camp Registration",
-    "contact.link2Text": "The summer activity registration entry helps families review the schedule, participation options and activity details.",
-    "contact.link3Title": "2026 Spring Term Information",
-    "contact.link3Text": "Spring course details and admissions contact information remain available here for families who want to review the term plan.",
-    "contact.backendEyebrow": "Useful Information",
-    "contact.backendTitle": "The school information families check most often is gathered here.",
-    "contact.backend1": "School address and campus location",
-    "contact.backend2": "Admissions and course inquiry email",
-    "contact.backend3": "HSK exam contact entry",
-    "contact.backend4": "Recent term updates and activity registration information"
   },
   sv: {
     "brand.school": "Ruiqing kinesiska skola i Stockholm",
@@ -487,13 +257,10 @@ const translations = {
     "index.grid3Title": "Kulturliv",
     "index.grid3Text": "Recitation, kalligrafi, festivaler, studieresor och sommarläger",
     "index.grid4Title": "HSK-center",
-    "index.grid4Text": "HSK-service för elever i hela Norden",
-    "index.priorityEyebrow": "Skolöversikt",
-    "index.priorityTitle": "Vanliga ingångar för familjer",
-    "index.card1Label": "Om skolan",
-    "index.card1Title": "Skolans identitet och historia",
-    "index.card1Text": "Lär känna skolans bakgrund, vision, historia och lärarlag.",
-    "index.card1Cta": "Öppna sidan",
+    "index.grid4Text": "HSK-service och provstöd för elever i hela Norden",
+    "index.priorityEyebrow": "Skolinformation",
+    "index.priorityTitle": "Börja med skolan, fortsätt sedan till kurser och nyheter",
+    "index.priorityText": "Ruiqing är en väletablerad kinesisk helgskola i Stockholm. Med en stabil kursstruktur, professionella lärare och verkliga skolaktiviteter får eleverna utveckla språket och samtidigt bygga en nära relation till kinesisk kultur.",
     "index.card2Label": "Kurser",
     "index.card2Title": "Klasser och studieväg",
     "index.card2Text": "Se struktur för förskola, årskurser, kinesiska som främmande språk och kulturkurser.",
@@ -658,8 +425,8 @@ const translations = {
     "hsk.related3Text": "Skolan fortsätter att erbjuda tydlig provinformation och stöd för elever med olika språkbakgrunder.",
     "hsk.footerLabel": "HSK Testcenter",
     "contact.eyebrow": "Antagning",
-    "contact.heroTitle": "Anmälan, kursfrågor och kontakt för prov",
-    "contact.heroText": "Den här sidan samlar den kontaktinformation familjer oftast använder, så att det blir enkelt att hitta skoladress, e-postadresser och viktiga aktuella notiser.",
+    "contact.heroTitle": "Antagning, kursfrågor och HSK-kontakt",
+    "contact.heroText": "Den här sidan samlar skoladress, antagningskontakt, HSK-kontakt och viktiga aktuella notiser för snabb överblick.",
     "contact.card1Label": "Skoladress",
     "contact.card1Text": "Skolan bedriver för närvarande helgundervisning och relaterade aktiviteter på Södra Latins Gymnasium i Stockholm.",
     "contact.card2Label": "Antagningskontakt",
@@ -668,20 +435,20 @@ const translations = {
     "contact.card3Text": "Frågor om HSK kan hanteras via den särskilda examenseposten, separat från allmänna skolfrågor.",
     "contact.introLabel": "Senaste antagningsinformation",
     "contact.introTitle": "Skolan publicerar antagnings- och terminsinformation varje termin",
-    "contact.introBody": `<p>Varje termin publicerar skolan kursplaner, sommarlägerinformation, nybörjarantagning och kulturklassinformation så att familjer kan följa schema och anmälningsdatum.</p><p>Den här sidan samlar de viktigaste kontaktvägarna och aktuella notiserna så att familjer lättare kan hantera frågor, anmälan och provrelaterad kommunikation.</p>`,
-    "contact.linksEyebrow": "Nyliga ingångar",
+    "contact.introBody": `<p>Varje termin publicerar skolan kursplaner, sommarlägerinformation, nybörjarantagning och kulturklassinformation så att familjer kan följa schema och anmälningsdatum.</p><p>Den här sidan samlar skolans viktigaste kontaktuppgifter och aktuella notiser så att familjer lättare kan hantera frågor, anmälan och provrelaterad kommunikation.</p>`,
+    "contact.linksEyebrow": "Aktuell information",
     "contact.linksTitle": "Antagnings- och terminsinformation som fortfarande är relevant",
     "contact.link1Title": "Höstplan 2026",
-    "contact.link1Text": "En praktisk ingång för föräldrar som vill se terminens struktur och rytm.",
+    "contact.link1Text": "Här finns terminens upplägg och kursrytm samlade för familjer som planerar den nya terminen.",
     "contact.link2Title": "Anmälan till sommarläger",
-    "contact.link2Text": "Anmälan till sommaraktiviteter hjälper familjer att se tidsplan, deltagaralternativ och aktivitetsdetaljer.",
+    "contact.link2Text": "Den här sommarinformationen samlar tidsplan, deltagaralternativ och viktiga aktivitetsdetaljer på ett ställe.",
     "contact.link3Title": "Information om vårterminen 2026",
     "contact.link3Text": "Vårterminens kursinformation och antagningskontakt finns kvar här för familjer som vill gå tillbaka till terminsplanen.",
-    "contact.backendEyebrow": "Vanlig information",
-    "contact.backendTitle": "Den skolinformation som familjer oftast söker finns samlad här.",
+    "contact.backendEyebrow": "Kontakt och information",
+    "contact.backendTitle": "Skolans viktigaste kontaktuppgifter och aktuella terminsnotiser finns samlade här.",
     "contact.backend1": "Skoladress och campusplats",
     "contact.backend2": "E-post för antagning och kursfrågor",
-    "contact.backend3": "Kontaktväg för HSK-prov",
+    "contact.backend3": "Kontaktuppgifter för HSK-prov",
     "contact.backend4": "Senaste terminsuppdateringar och aktivitetsanmälan"
   }
 };
@@ -700,9 +467,19 @@ function escapeHtml(value) {
 
 function localizeValue(value, lang) {
   if (value && typeof value === "object") {
-    return value[lang] || value.zh || value.sv || value.en || "";
+    return value[lang] || value.zh || value.sv || "";
   }
   return value || "";
+}
+
+function renderNewsImage(item, lang, className = "") {
+  if (!item?.image) {
+    return "";
+  }
+
+  const alt = escapeHtml(localizeValue(item.title, lang));
+  const classAttr = className ? ` class="${escapeHtml(className)}"` : "";
+  return `<img${classAttr} src="${escapeHtml(item.image)}" alt="${alt}" loading="lazy" />`;
 }
 
 function loadNewsItems() {
@@ -745,7 +522,7 @@ function renderHomeNews(lang, items) {
 
   root.innerHTML = `
     <article class="news-card news-card-featured">
-      <img src="${escapeHtml(featured.image)}" alt="${escapeHtml(localizeValue(featured.title, lang))}" />
+      ${renderNewsImage(featured, lang)}
       <div class="news-card-copy">
         <span>${escapeHtml(featured.date)}</span>
         <h3>${escapeHtml(localizeValue(featured.title, lang))}</h3>
@@ -784,7 +561,7 @@ function renderNewsList(lang, items) {
       leadOne
         ? `
       <article class="news-row">
-        <img src="${escapeHtml(leadOne.image)}" alt="${escapeHtml(localizeValue(leadOne.title, lang))}" />
+        ${renderNewsImage(leadOne, lang)}
         <div class="news-row-copy">
           <span>${escapeHtml(leadOne.date)}</span>
           <h2>${escapeHtml(localizeValue(leadOne.title, lang))}</h2>
@@ -799,7 +576,7 @@ function renderNewsList(lang, items) {
       leadTwo
         ? `
       <article class="news-row">
-        <img src="${escapeHtml(leadTwo.image)}" alt="${escapeHtml(localizeValue(leadTwo.title, lang))}" />
+        ${renderNewsImage(leadTwo, lang)}
         <div class="news-row-copy">
           <span>${escapeHtml(leadTwo.date)}</span>
           <h2>${escapeHtml(localizeValue(leadTwo.title, lang))}</h2>
@@ -849,7 +626,7 @@ function renderDynamicContent(lang) {
 function applyTranslations(lang) {
   const dict = translations[lang] || translations.zh;
   currentLang = lang;
-  document.documentElement.lang = lang === "sv" ? "sv" : lang === "en" ? "en" : "zh-Hans";
+  document.documentElement.lang = lang === "sv" ? "sv" : "zh-Hans";
 
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;
@@ -904,3 +681,20 @@ if (navToggle && nav) {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
+
+document.addEventListener(
+  "error",
+  (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLImageElement)) {
+      return;
+    }
+
+    target.remove();
+    const card = target.closest(".news-row, .news-card");
+    if (card) {
+      card.classList.add("is-imageless");
+    }
+  },
+  true
+);

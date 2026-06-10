@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260610b" />
   </head>
   <body data-page="index">
     <div class="site-shell">
@@ -98,24 +98,35 @@
               </article>
               <article>
                 <h2 data-i18n="index.grid4Title">汉考中心</h2>
-                <p data-i18n="index.grid4Text">面向北欧学习者的 HSK 服务入口</p>
+                <p data-i18n="index.grid4Text">面向北欧学习者的 HSK 服务与考试支持</p>
               </article>
             </div>
           </div>
         </section>
 
+        <section class="section-grid section-tight" id="modules">
+          <div class="section-heading">
+            <p class="eyebrow" data-i18n="index.newsEyebrow">最新新闻</p>
+            <h2 data-i18n="index.newsTitle">最新新闻</h2>
+            <p data-i18n="index.newsText">了解学校近期活动、课程通知与校园动态。更多内容请查看新闻页。</p>
+          </div>
+          <div class="home-news-grid cms-news-grid" id="home-news-root"></div>
+          <div class="section-actions">
+            <a class="button button-secondary" href="news.html" data-i18n="index.allNews">查看全部新闻</a>
+          </div>
+        </section>
+
         <section class="section-grid section-tight">
           <div class="section-heading">
-            <p class="eyebrow" data-i18n="index.priorityEyebrow">学校概览</p>
-            <h2 data-i18n="index.priorityTitle">家长常用入口</h2>
+            <p class="eyebrow" data-i18n="index.priorityEyebrow">学校信息</p>
+            <h2 data-i18n="index.priorityTitle">先了解学校，再看课程与新闻</h2>
           </div>
-          <div class="home-priority-grid">
-            <article class="priority-card">
-              <span data-i18n="index.card1Label">学校简介</span>
-              <h3 data-i18n="index.card1Title">了解学校定位与办学历史</h3>
-              <p data-i18n="index.card1Text">快速了解学校背景、办学理念、校史与教师团队。</p>
-              <a href="about.html" data-i18n="index.card1Cta">进入简介</a>
-            </article>
+          <div class="priority-intro">
+            <p data-i18n="index.priorityText">
+              瑞青中文学校是一所长期扎根斯德哥尔摩的周末中文学校。学校以稳定课程体系、专业师资和真实校园活动为基础，让学生在语言学习之外，也持续建立对中华文化的理解与亲近感。
+            </p>
+          </div>
+          <div class="home-priority-grid home-priority-grid-triple">
             <article class="priority-card">
               <span data-i18n="index.card2Label">课程体系</span>
               <h3 data-i18n="index.card2Title">查看班级设置与教材路径</h3>
@@ -124,7 +135,7 @@
             </article>
             <article class="priority-card">
               <span data-i18n="index.card3Label">招生联系</span>
-              <h3 data-i18n="index.card3Title">找到报名与咨询入口</h3>
+              <h3 data-i18n="index.card3Title">查看报名与咨询信息</h3>
               <p data-i18n="index.card3Text">集中查看报名邮箱、学校地址与近期开班信息。</p>
               <a href="contact.html" data-i18n="index.card3Cta">报名咨询</a>
             </article>
@@ -136,18 +147,6 @@
             </article>
           </div>
         </section>
-
-        <section class="section-grid section-tight" id="modules">
-          <div class="section-heading">
-            <p class="eyebrow" data-i18n="index.newsEyebrow">Latest News</p>
-            <h2 data-i18n="index.newsTitle">最新新闻</h2>
-            <p data-i18n="index.newsText">了解学校近期活动、课程通知与校园动态。更多内容请查看新闻页。</p>
-          </div>
-          <div class="home-news-grid cms-news-grid" id="home-news-root"></div>
-          <div class="section-actions">
-            <a class="button button-secondary" href="news.html" data-i18n="index.allNews">查看全部新闻</a>
-          </div>
-        </section>
       </main>
 
       <footer class="footer">
@@ -156,6 +155,6 @@
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260610b"></script>
   </body>
 </html>
