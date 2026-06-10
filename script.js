@@ -872,14 +872,24 @@ function applyTranslations(lang) {
   renderDynamicContent(lang);
 }
 
+const supportedLangs = new Set(["zh", "sv"]);
 const params = new URLSearchParams(window.location.search);
-const initialLang = params.get("lang") || localStorage.getItem("kinaskolan-lang") || "zh";
+const requestedLang = params.get("lang") || localStorage.getItem("kinaskolan-lang") || "zh";
+const initialLang = supportedLangs.has(requestedLang) ? requestedLang : "zh";
+
+if (!supportedLangs.has(params.get("lang")) && params.has("lang")) {
+  params.set("lang", initialLang);
+  window.history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`);
+}
 
 if (langOptions.length) {
   applyTranslations(initialLang);
   langOptions.forEach((button) => {
     button.addEventListener("click", () => {
       const nextLang = button.dataset.lang;
+      if (!supportedLangs.has(nextLang)) {
+        return;
+      }
       localStorage.setItem("kinaskolan-lang", nextLang);
       params.set("lang", nextLang);
       window.history.replaceState({}, "", `${window.location.pathname}?${params.toString()}`);

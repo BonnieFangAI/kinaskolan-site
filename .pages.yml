@@ -40,9 +40,6 @@ content:
             label: Chinese
             type: string
             required: true
-          - name: en
-            label: English
-            type: string
           - name: sv
             label: Swedish
             type: string
@@ -55,9 +52,6 @@ content:
             label: Chinese
             type: text
             required: true
-          - name: en
-            label: English
-            type: text
           - name: sv
             label: Swedish
             type: text
