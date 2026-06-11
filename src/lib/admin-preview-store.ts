@@ -7,11 +7,10 @@ import {
   courses,
   hskInfo,
   newsItems,
-  scholarshipItems,
   schoolOverview,
   teachers,
 } from "@/lib/site-content";
-import type { AdminSectionKey } from "@/lib/admin-data";
+import type { EditableAdminSectionKey } from "@/lib/admin-data";
 
 type PreviewRecord = {
   id: string;
@@ -23,7 +22,7 @@ type PreviewRecord = {
 };
 
 type PreviewStore = Record<
-  Exclude<AdminSectionKey, "dashboard">,
+  EditableAdminSectionKey,
   {
     records: PreviewRecord[];
   }
@@ -45,10 +44,13 @@ function initialStore(): PreviewStore {
         status: item.featured ? "Featured" : "Published",
         updatedAt: item.date,
         values: {
+          slug: item.slug,
           title_zh: item.title.zh,
           title_sv: item.title.sv,
           excerpt_zh: item.excerpt.zh,
           excerpt_sv: item.excerpt.sv,
+          body_zh: item.body.zh.join("\n\n"),
+          body_sv: item.body.sv.join("\n\n"),
           image: item.image,
           date: item.date,
         },
@@ -94,19 +96,24 @@ function initialStore(): PreviewStore {
         },
       })),
     },
-    activities: {
+    "student-works": {
       records: activityCategories.map((item) => ({
         id: item.key,
         title: item.title.zh,
         subtitle: item.title.sv,
-        status: "Category",
+        status: "Published",
         updatedAt: nowDate(),
         values: {
+          slug: item.key,
+          category: item.key,
           title_zh: item.title.zh,
           title_sv: item.title.sv,
           summary_zh: item.summary.zh,
           summary_sv: item.summary.sv,
+          body_zh: item.summary.zh,
+          body_sv: item.summary.sv,
           image: item.image,
+          event_date: "",
           highlights: item.highlights.map((entry) => entry.zh),
         },
       })),
@@ -124,23 +131,7 @@ function initialStore(): PreviewStore {
           summary_zh: notice.summary.zh,
           summary_sv: notice.summary.sv,
           date: "",
-        },
-      })),
-    },
-    scholarships: {
-      records: scholarshipItems.map((item, index) => ({
-        id: `scholarship-${index + 1}`,
-        title: item.title.zh,
-        subtitle: item.title.sv,
-        status: "Published",
-        updatedAt: item.date,
-        values: {
-          title_zh: item.title.zh,
-          title_sv: item.title.sv,
-          summary_zh: item.summary.zh,
-          summary_sv: item.summary.sv,
-          published_at: item.date,
-          image: "",
+          registration_url: "",
         },
       })),
     },
@@ -152,23 +143,38 @@ function initialStore(): PreviewStore {
           subtitle: "Homepage / about",
           status: "Reusable",
           updatedAt: nowDate(),
-          values: { file: "/campus.jpg" },
+          values: {
+            file_name: "campus.jpg",
+            file_path: "/campus.jpg",
+            alt_zh: "学校校园图片",
+            alt_sv: "Skolbild",
+          },
         },
         {
           id: "ambassador",
           title: "news-ambassador.jpg",
-          subtitle: "News / activities",
+          subtitle: "News / student works",
           status: "Reusable",
           updatedAt: nowDate(),
-          values: { file: "/news-ambassador.jpg" },
+          values: {
+            file_name: "news-ambassador.jpg",
+            file_path: "/news-ambassador.jpg",
+            alt_zh: "学生朗诵活动图片",
+            alt_sv: "Recitationsaktivitet",
+          },
         },
         {
           id: "finland",
           title: "trip-finland.png",
-          subtitle: "Study tours",
+          subtitle: "Student works",
           status: "Reusable",
           updatedAt: nowDate(),
-          values: { file: "/trip-finland.png" },
+          values: {
+            file_name: "trip-finland.png",
+            file_path: "/trip-finland.png",
+            alt_zh: "学生游学活动图片",
+            alt_sv: "Studieresa",
+          },
         },
       ],
     },
@@ -176,7 +182,7 @@ function initialStore(): PreviewStore {
       records: [
         {
           id: "site-settings",
-          title: "Global school settings",
+          title: "Basic site settings",
           subtitle: "Hero copy, contact information, and core school description",
           status: "Preview mode",
           updatedAt: nowDate(),
@@ -197,6 +203,20 @@ function initialStore(): PreviewStore {
   };
 }
 
+function normalizeStore(raw: Partial<PreviewStore> & { activities?: { records: PreviewRecord[] } }): PreviewStore {
+  const seed = initialStore();
+
+  return {
+    news: raw.news ?? seed.news,
+    teachers: raw.teachers ?? seed.teachers,
+    courses: raw.courses ?? seed.courses,
+    "student-works": raw["student-works"] ?? raw.activities ?? seed["student-works"],
+    hsk: raw.hsk ?? seed.hsk,
+    media: raw.media ?? seed.media,
+    settings: raw.settings ?? seed.settings,
+  };
+}
+
 export async function ensurePreviewStore() {
   try {
     await fs.access(storePath);
@@ -209,69 +229,67 @@ export async function ensurePreviewStore() {
 export async function readPreviewStore(): Promise<PreviewStore> {
   await ensurePreviewStore();
   const raw = await fs.readFile(storePath, "utf8");
-  return JSON.parse(raw) as PreviewStore;
+  return normalizeStore(JSON.parse(raw));
 }
 
 export async function writePreviewStore(store: PreviewStore) {
   await fs.writeFile(storePath, JSON.stringify(store, null, 2), "utf8");
 }
 
-export async function getPreviewSectionRecords(section: Exclude<AdminSectionKey, "dashboard">) {
+export async function getPreviewSectionRecords(section: EditableAdminSectionKey) {
   const store = await readPreviewStore();
   return store[section].records;
 }
 
-export async function getPreviewRecord(
-  section: Exclude<AdminSectionKey, "dashboard">,
-  recordId: string
-) {
+export async function getPreviewRecord(section: EditableAdminSectionKey, recordId: string) {
   const records = await getPreviewSectionRecords(section);
   return records.find((record) => record.id === recordId);
 }
 
-function computeTitle(section: Exclude<AdminSectionKey, "dashboard">, values: Record<string, string | string[]>) {
+function computeTitle(section: EditableAdminSectionKey, values: Record<string, string | string[]>) {
   switch (section) {
     case "news":
-    case "activities":
+    case "student-works":
     case "hsk":
-    case "scholarships":
       return String(values.title_zh || "Untitled");
     case "teachers":
       return String(values.name || "Teacher");
     case "courses":
       return String(values.name_zh || "Course");
     case "media":
-      return String(values.file || "Media file");
+      return String(values.file_name || values.file_path || "Media file");
     case "settings":
-      return "Global school settings";
+      return "Basic site settings";
   }
 }
 
-function computeSubtitle(section: Exclude<AdminSectionKey, "dashboard">, values: Record<string, string | string[]>) {
+function computeSubtitle(section: EditableAdminSectionKey, values: Record<string, string | string[]>) {
   switch (section) {
     case "news":
-    case "activities":
+    case "student-works":
     case "hsk":
-    case "scholarships":
       return String(values.title_sv || "");
     case "teachers":
       return String(values.position_zh || "");
     case "courses":
       return String(values.age_group_zh || "");
     case "media":
-      return "Preview asset";
+      return String(values.file_path || "");
     case "settings":
       return String(values.contact_email || "");
   }
 }
 
 export async function upsertPreviewRecord(
-  section: Exclude<AdminSectionKey, "dashboard">,
+  section: EditableAdminSectionKey,
   recordId: string | null,
   values: Record<string, string | string[]>
 ) {
   const store = await readPreviewStore();
-  const nextId = recordId && recordId !== "new" ? recordId : `${section}-${Date.now()}`;
+  const nextId =
+    recordId && recordId !== "new"
+      ? recordId
+      : String(values.slug || values.file_name || `${section}-${Date.now()}`);
   const records = store[section].records;
   const existingIndex = records.findIndex((record) => record.id === nextId);
   const nextRecord: PreviewRecord = {
@@ -291,4 +309,10 @@ export async function upsertPreviewRecord(
 
   await writePreviewStore(store);
   return nextId;
+}
+
+export async function deletePreviewRecord(section: EditableAdminSectionKey, recordId: string) {
+  const store = await readPreviewStore();
+  store[section].records = store[section].records.filter((record) => record.id !== recordId);
+  await writePreviewStore(store);
 }

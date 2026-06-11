@@ -3,19 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import {
-  activityCategories,
-  assetPath,
-  contactInfo,
-  hskInfo,
-  isLocale,
-  newsItems,
-  resolveSitePath,
-  schoolOverview,
-  t,
-  type Locale,
-  ui,
-} from "@/lib/site-content";
+import { getHskContent, getNewsContent, getSiteSettingsContent, getStudentWorkContent } from "@/lib/cms-content";
+import { assetPath, isLocale, resolveSitePath, schoolOverview, t, type Locale, ui } from "@/lib/site-content";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -52,8 +41,14 @@ export default async function LocaleHome({ params }: PageProps) {
     notFound();
   }
 
-  const latestNews = newsItems.slice(0, 3);
-  const studentShowcase = activityCategories.slice(0, 3);
+  const [settings, newsContent, studentWorks, hskContent] = await Promise.all([
+    getSiteSettingsContent(),
+    getNewsContent(),
+    getStudentWorkContent(),
+    getHskContent(),
+  ]);
+  const latestNews = newsContent.slice(0, 3);
+  const studentShowcase = studentWorks.slice(0, 3);
 
   return (
     <div className="flex w-full flex-col">
@@ -70,12 +65,12 @@ export default async function LocaleHome({ params }: PageProps) {
           <div className="max-w-3xl space-y-6">
             <p className="text-sm font-semibold text-white/78">Kinaskolan Ruiqing i Stockholm</p>
             <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              {t(locale, ui.hero.title)}
+              {t(locale, settings.hero.title)}
             </h1>
-            <p className="max-w-2xl text-base leading-8 text-white/88 sm:text-lg">{t(locale, ui.hero.subtitle)}</p>
+            <p className="max-w-2xl text-base leading-8 text-white/88 sm:text-lg">{t(locale, settings.hero.subtitle)}</p>
             <div className="flex flex-wrap gap-3 pt-1">
               <a
-                href={`mailto:${contactInfo.email}`}
+                href={`mailto:${settings.contact.email}`}
                 className="rounded-md bg-white px-5 py-3 text-sm font-semibold text-brand-ink shadow-sm"
               >
                 {t(locale, ui.common.contactAdmissions)}
@@ -155,13 +150,13 @@ export default async function LocaleHome({ params }: PageProps) {
             <h2 className="text-3xl font-semibold text-brand-ink sm:text-4xl">
               {locale === "zh" ? "考试、奖学金与游学通知" : "Prov, stipendier och studieresor"}
             </h2>
-            <p className="text-base leading-8 text-slate-600">{t(locale, hskInfo.overview)}</p>
+            <p className="text-base leading-8 text-slate-600">{t(locale, hskContent.overview)}</p>
             <Link href={resolveSitePath(locale, "hsk")} className="inline-flex text-sm font-semibold text-brand-brick">
               {locale === "zh" ? "查看汉考信息" : "Läs mer om HSK"}
             </Link>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
-            {hskInfo.notices.map((notice) => (
+            {hskContent.notices.map((notice) => (
               <article key={notice.title.zh} className="rounded-lg border border-black/8 bg-brand-paper p-5">
                 <h3 className="text-lg font-semibold text-brand-ink">{t(locale, notice.title)}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{t(locale, notice.summary)}</p>

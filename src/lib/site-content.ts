@@ -58,11 +58,8 @@ export const sitePaths = {
   home: "",
   news: "/news",
   about: "/about",
-  teachers: "/teachers",
-  courses: "/courses",
   activities: "/students",
   hsk: "/hsk",
-  contact: "/contact",
 } as const;
 
 export type SitePathKey = keyof typeof sitePaths;
@@ -92,11 +89,8 @@ export const ui = {
     home: { zh: "首页", sv: "Hem" },
     news: { zh: "新闻", sv: "Nyheter" },
     about: { zh: "瑞青简介", sv: "Om Ruiqing" },
-    teachers: { zh: "教师介绍", sv: "Lärare" },
-    courses: { zh: "课程介绍", sv: "Kurser" },
     activities: { zh: "学生作品", sv: "Elevarbeten" },
     hsk: { zh: "汉考信息", sv: "HSK" },
-    contact: { zh: "联系学校", sv: "Kontakt" },
   },
   common: {
     learnMore: { zh: "了解更多", sv: "Läs mer" },
@@ -597,12 +591,16 @@ export const adminModules = [
     description: "Create, edit, and delete news with dates, cover images, titles, and body copy.",
   },
   {
-    name: "Page Content",
-    description: "Edit the school profile, course introduction, textbook introduction, and HSK information.",
+    name: "Teachers & Courses",
+    description: "Edit teacher profiles, course introductions, textbook notes, and related About-page content.",
+  },
+  {
+    name: "Student Works & HSK",
+    description: "Manage student works, recitation, calligraphy, activity content, exam notices, scholarships, and study-tour notes.",
   },
   {
     name: "Media Library",
-    description: "Upload images, keep reusable media, and manage activity albums.",
+    description: "Register reusable images, cover assets, and activity album files.",
   },
   {
     name: "SEO",

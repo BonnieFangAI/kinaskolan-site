@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { getNewsContent } from "@/lib/cms-content";
 import { assetPath, isLocale, locales, newsItems, t, type Locale, ui } from "@/lib/site-content";
 
 export function generateStaticParams() {
@@ -20,7 +21,8 @@ export async function generateMetadata({
     return {};
   }
 
-  const item = newsItems.find((entry) => entry.slug === slug);
+  const newsContent = await getNewsContent();
+  const item = newsContent.find((entry) => entry.slug === slug);
   if (!item) {
     return {};
   }
@@ -49,7 +51,8 @@ export default async function NewsDetailPage({
     notFound();
   }
 
-  const item = newsItems.find((entry) => entry.slug === slug);
+  const newsContent = await getNewsContent();
+  const item = newsContent.find((entry) => entry.slug === slug);
   if (!item) {
     notFound();
   }

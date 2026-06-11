@@ -2,9 +2,8 @@ import { notFound } from "next/navigation";
 
 import { AdminShell } from "@/components/admin-shell";
 import { AdminRecordEditor } from "@/components/admin/section-overview";
-import { requirePreviewAdminSession } from "@/lib/admin-auth";
+import { requireAdminSession } from "@/lib/admin-auth";
 import { adminSections, getAdminDatasetLive, type AdminSectionKey } from "@/lib/admin-data";
-import { hasSupabaseEnv } from "@/lib/supabase/env";
 
 function isAdminSectionKey(value: string): value is AdminSectionKey {
   return adminSections.some((section) => section.key === value);
@@ -17,9 +16,7 @@ export default async function AdminRecordPage({
 }) {
   const { section, recordId } = await params;
 
-  if (!hasSupabaseEnv()) {
-    await requirePreviewAdminSession();
-  }
+  await requireAdminSession();
 
   if (!isAdminSectionKey(section) || section === "dashboard") {
     notFound();

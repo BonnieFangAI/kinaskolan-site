@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { SectionShell } from "@/components/section-shell";
-import { contactInfo, hskInfo, isLocale, scholarshipItems, t } from "@/lib/site-content";
+import { getHskContent, getSiteSettingsContent } from "@/lib/cms-content";
+import { contactInfo, isLocale, scholarshipItems, t } from "@/lib/site-content";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -31,6 +32,9 @@ export default async function HskPage({ params }: PageProps) {
     notFound();
   }
 
+  const [settings, hskContent] = await Promise.all([getSiteSettingsContent(), getHskContent()]);
+  const contactAddress = settings.contact.address || contactInfo.address;
+
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-5 py-10 sm:px-6 lg:px-10 lg:py-14">
       <SectionShell
@@ -43,7 +47,7 @@ export default async function HskPage({ params }: PageProps) {
         }}
       >
         <article className="rounded-lg border border-black/8 bg-white p-6 shadow-sm">
-          <p className="max-w-4xl text-base leading-8 text-slate-600">{t(locale, hskInfo.overview)}</p>
+          <p className="max-w-4xl text-base leading-8 text-slate-600">{t(locale, hskContent.overview)}</p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <div className="rounded-lg bg-brand-paper p-4">
               <p className="text-sm font-semibold text-brand-brick">{locale === "zh" ? "HSK 邮箱" : "HSK e-post"}</p>
@@ -51,13 +55,13 @@ export default async function HskPage({ params }: PageProps) {
             </div>
             <div className="rounded-lg bg-brand-paper p-4">
               <p className="text-sm font-semibold text-brand-brick">{locale === "zh" ? "考试地点" : "Provplats"}</p>
-              <p className="mt-2 text-base text-brand-ink">{contactInfo.address}</p>
+              <p className="mt-2 text-base text-brand-ink">{contactAddress}</p>
             </div>
           </div>
         </article>
 
         <div className="grid gap-5 md:grid-cols-3">
-          {hskInfo.notices.map((notice) => (
+          {hskContent.notices.map((notice) => (
             <article key={notice.title.zh} className="rounded-lg border border-black/8 bg-white p-6 shadow-sm">
               <h2 className="text-2xl font-semibold text-brand-ink">{t(locale, notice.title)}</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">{t(locale, notice.summary)}</p>

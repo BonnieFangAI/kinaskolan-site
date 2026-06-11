@@ -1,8 +1,10 @@
 import Link from "next/link";
 
+import { getSiteSettingsContent } from "@/lib/cms-content";
 import { contactInfo, resolveSitePath, siteNavigation, type Locale, t, ui } from "@/lib/site-content";
 
-export function SiteFooter({ locale }: { locale: Locale }) {
+export async function SiteFooter({ locale }: { locale: Locale }) {
+  const settings = await getSiteSettingsContent();
   const footerNav = siteNavigation.filter((item) => item.key !== "home");
 
   return (
@@ -32,14 +34,14 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         <div className="grid gap-4 sm:grid-cols-2">
           <article className="rounded-[28px] border border-black/8 bg-white/88 p-5 shadow-sm">
             <p className="text-sm font-semibold text-brand-brick">{locale === "zh" ? "学校地址" : "Adress"}</p>
-            <p className="mt-3 text-sm leading-7 text-slate-600">{contactInfo.address}</p>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{settings.contact.address}</p>
             <p className="mt-4 text-sm font-semibold text-brand-brick">{locale === "zh" ? "电话" : "Telefon"}</p>
-            <p className="mt-2 text-sm leading-7 text-slate-600">{contactInfo.phone}</p>
+            <p className="mt-2 text-sm leading-7 text-slate-600">{settings.contact.phone}</p>
           </article>
 
           <article className="rounded-[28px] border border-black/8 bg-white/88 p-5 shadow-sm">
             <p className="text-sm font-semibold text-brand-brick">{locale === "zh" ? "联系邮箱" : "E-post"}</p>
-            <p className="mt-3 text-sm leading-7 text-slate-600">{contactInfo.email}</p>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{settings.contact.email}</p>
             <p className="text-sm leading-7 text-slate-600">{contactInfo.hskEmail}</p>
             <p className="mt-4 text-sm leading-7 text-slate-500">
               {locale === "zh"

@@ -1,11 +1,11 @@
 import { AdminShell } from "@/components/admin-shell";
 import { AdminSignInForm } from "@/components/admin/sign-in-form";
-import { getPreviewAdminCredentials, hasPreviewAdminSession } from "@/lib/admin-auth";
+import { getPreviewAdminCredentials, hasAdminSession } from "@/lib/admin-auth";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
 import { redirect } from "next/navigation";
 
 export default async function AdminSignInPage() {
-  if (!hasSupabaseEnv() && (await hasPreviewAdminSession())) {
+  if (await hasAdminSession()) {
     redirect("/admin");
   }
 

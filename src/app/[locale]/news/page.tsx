@@ -4,7 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SectionShell } from "@/components/section-shell";
-import { assetPath, isLocale, newsItems, t, type Locale, ui } from "@/lib/site-content";
+import { getNewsContent } from "@/lib/cms-content";
+import { assetPath, isLocale, t, type Locale, ui } from "@/lib/site-content";
 
 function formatDate(date: string, locale: Locale) {
   return new Intl.DateTimeFormat(locale === "sv" ? "sv-SE" : "zh-CN", {
@@ -24,6 +25,8 @@ export default async function NewsPage({
     notFound();
   }
 
+  const newsContent = await getNewsContent();
+
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-10 lg:px-10 lg:py-14">
       <SectionShell
@@ -36,7 +39,7 @@ export default async function NewsPage({
         }}
       >
         <div className="grid gap-6">
-          {newsItems.map((item) => (
+          {newsContent.map((item) => (
             <article
               key={item.slug}
               className="grid gap-0 overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-200 lg:grid-cols-[320px_1fr]"

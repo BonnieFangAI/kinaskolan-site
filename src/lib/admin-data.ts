@@ -4,7 +4,6 @@ import {
   courses,
   hskInfo,
   newsItems,
-  scholarshipItems,
   schoolOverview,
   teachers,
 } from "@/lib/site-content";
@@ -17,11 +16,12 @@ export type AdminSectionKey =
   | "news"
   | "teachers"
   | "courses"
-  | "activities"
+  | "student-works"
   | "hsk"
-  | "scholarships"
   | "media"
   | "settings";
+
+export type EditableAdminSectionKey = Exclude<AdminSectionKey, "dashboard">;
 
 export type AdminSection = {
   key: AdminSectionKey;
@@ -31,7 +31,7 @@ export type AdminSection = {
 };
 
 export type AdminField =
-  | { key: string; label: string; type: "text" | "textarea" | "date" | "email" | "image" }
+  | { key: string; label: string; type: "text" | "textarea" | "date" | "email" | "image" | "file" }
   | { key: string; label: string; type: "list"; items: string[] };
 
 export type AdminRecord = {
@@ -48,50 +48,44 @@ export const adminSections: AdminSection[] = [
   {
     key: "dashboard",
     label: "Dashboard",
-    description: "Overview of current publishing status and the parts of the site school staff update most often.",
+    description: "Publishing status for the school CMS and the content areas staff update most often.",
     cta: "Review status",
   },
   {
     key: "news",
     label: "News",
-    description: "Publish school news, update titles and dates, and manage cover images.",
+    description: "Publish school news with SEO-friendly URLs, dates, cover images, summaries, and article body copy.",
     cta: "Create news",
   },
   {
     key: "teachers",
     label: "Teachers",
-    description: "Manage teacher profiles with photos, positions, biographies, and teaching focus.",
+    description: "Manage teacher photos, names, positions, biographies, and teaching focus.",
     cta: "Add teacher",
   },
   {
     key: "courses",
     label: "Courses",
-    description: "Edit course descriptions, age groups, learning objectives, and textbooks.",
+    description: "Edit course descriptions, age groups, learning objectives, and textbook notes.",
     cta: "Add course",
   },
   {
-    key: "activities",
-    label: "Activities",
-    description: "Manage activity categories and publish student works, competition posts, and extracurricular reports.",
-    cta: "Add activity post",
+    key: "student-works",
+    label: "Student Works",
+    description: "Manage recitation, calligraphy, and extracurricular activity content without creating extra public columns.",
+    cta: "Add student work",
   },
   {
     key: "hsk",
     label: "HSK Information",
-    description: "Update exam dates, registration guidance, and important HSK notices.",
+    description: "Update exam dates, registration guidance, scholarship references, and study-tour notices in one HSK area.",
     cta: "Add HSK notice",
-  },
-  {
-    key: "scholarships",
-    label: "Scholarships & Study Tours",
-    description: "Publish scholarship opportunities, application information, and study tour updates.",
-    cta: "Add scholarship post",
   },
   {
     key: "media",
     label: "Media Library",
-    description: "Track reusable images and cover assets across the website.",
-    cta: "Upload media",
+    description: "Track reusable images, cover assets, and gallery files used across the website.",
+    cta: "Add media",
   },
   {
     key: "settings",
@@ -114,19 +108,25 @@ function toNewsRecords(): AdminRecord[] {
     status: item.featured ? "Featured" : "Published",
     updatedAt: item.date,
     values: {
+      slug: item.slug,
       title_zh: item.title.zh,
       title_sv: item.title.sv,
       excerpt_zh: item.excerpt.zh,
       excerpt_sv: item.excerpt.sv,
+      body_zh: item.body.zh.join("\n\n"),
+      body_sv: item.body.sv.join("\n\n"),
       image: item.image,
       date: item.date,
     },
     fields: [
+      { key: "slug", label: "SEO URL slug", type: "text" },
       { key: "title_zh", label: "Title (ZH)", type: "text" },
       { key: "title_sv", label: "Title (SV)", type: "text" },
       { key: "excerpt_zh", label: "Excerpt (ZH)", type: "textarea" },
       { key: "excerpt_sv", label: "Excerpt (SV)", type: "textarea" },
-      { key: "image", label: "Cover image", type: "image" },
+      { key: "body_zh", label: "Body (ZH)", type: "textarea" },
+      { key: "body_sv", label: "Body (SV)", type: "textarea" },
+      { key: "image", label: "Cover image path", type: "image" },
       { key: "date", label: "Publish date", type: "date" },
     ],
   }));
@@ -156,7 +156,7 @@ function toTeacherRecords(): AdminRecord[] {
       { key: "bio_sv", label: "Biography (SV)", type: "textarea" },
       { key: "focus_zh", label: "Teaching focus (ZH)", type: "text" },
       { key: "focus_sv", label: "Teaching focus (SV)", type: "text" },
-      { key: "photo", label: "Photo", type: "image" },
+      { key: "photo", label: "Photo path", type: "image" },
     ],
   }));
 }
@@ -194,27 +194,37 @@ function toCourseRecords(): AdminRecord[] {
   }));
 }
 
-function toActivityRecords(): AdminRecord[] {
+function toStudentWorkRecords(): AdminRecord[] {
   return activityCategories.map((category) => ({
     id: category.key,
     title: category.title.zh,
     subtitle: category.title.sv,
-    status: "Category",
+    status: "Published",
     values: {
+      slug: category.key,
+      category: category.key,
       title_zh: category.title.zh,
       title_sv: category.title.sv,
       summary_zh: category.summary.zh,
       summary_sv: category.summary.sv,
+      body_zh: category.summary.zh,
+      body_sv: category.summary.sv,
       image: category.image,
+      event_date: "",
       highlights: category.highlights.map((item) => item.zh),
     },
     fields: [
-      { key: "title_zh", label: "Category title (ZH)", type: "text" },
-      { key: "title_sv", label: "Category title (SV)", type: "text" },
+      { key: "slug", label: "SEO URL slug", type: "text" },
+      { key: "category", label: "Category", type: "text" },
+      { key: "title_zh", label: "Title (ZH)", type: "text" },
+      { key: "title_sv", label: "Title (SV)", type: "text" },
       { key: "summary_zh", label: "Summary (ZH)", type: "textarea" },
       { key: "summary_sv", label: "Summary (SV)", type: "textarea" },
-      { key: "image", label: "Cover image", type: "image" },
-      { key: "highlights", label: "Highlights", type: "list", items: category.highlights.map((item) => item.zh) },
+      { key: "body_zh", label: "Body (ZH)", type: "textarea" },
+      { key: "body_sv", label: "Body (SV)", type: "textarea" },
+      { key: "image", label: "Cover image path", type: "image" },
+      { key: "event_date", label: "Event date", type: "date" },
+      { key: "highlights", label: "Highlights (ZH)", type: "list", items: category.highlights.map((item) => item.zh) },
     ],
   }));
 }
@@ -231,6 +241,7 @@ function toHskRecords(): AdminRecord[] {
       summary_zh: notice.summary.zh,
       summary_sv: notice.summary.sv,
       date: "",
+      registration_url: "",
     },
     fields: [
       { key: "title_zh", label: "Title (ZH)", type: "text" },
@@ -238,41 +249,62 @@ function toHskRecords(): AdminRecord[] {
       { key: "summary_zh", label: "Summary (ZH)", type: "textarea" },
       { key: "summary_sv", label: "Summary (SV)", type: "textarea" },
       { key: "date", label: "Exam date", type: "date" },
-    ],
-  }));
-}
-
-function toScholarshipRecords(): AdminRecord[] {
-  return scholarshipItems.map((item, index) => ({
-    id: `scholarship-${index + 1}`,
-    title: item.title.zh,
-    subtitle: item.title.sv,
-    status: "Published",
-    updatedAt: item.date,
-    values: {
-      title_zh: item.title.zh,
-      title_sv: item.title.sv,
-      summary_zh: item.summary.zh,
-      summary_sv: item.summary.sv,
-      published_at: item.date,
-      image: "",
-    },
-    fields: [
-      { key: "title_zh", label: "Title (ZH)", type: "text" },
-      { key: "title_sv", label: "Title (SV)", type: "text" },
-      { key: "summary_zh", label: "Summary (ZH)", type: "textarea" },
-      { key: "summary_sv", label: "Summary (SV)", type: "textarea" },
-      { key: "published_at", label: "Publish date", type: "date" },
-      { key: "image", label: "Cover image", type: "image" },
+      { key: "registration_url", label: "Registration URL", type: "text" },
     ],
   }));
 }
 
 function toMediaRecords(): AdminRecord[] {
   return [
-    { id: "campus", title: "campus.jpg", subtitle: "Homepage / about", status: "Reusable", values: { file: "/campus.jpg" }, fields: [{ key: "file", label: "Image file", type: "image" }] },
-    { id: "ambassador", title: "news-ambassador.jpg", subtitle: "News / activities", status: "Reusable", values: { file: "/news-ambassador.jpg" }, fields: [{ key: "file", label: "Image file", type: "image" }] },
-    { id: "finland", title: "trip-finland.png", subtitle: "Study tours", status: "Reusable", values: { file: "/trip-finland.png" }, fields: [{ key: "file", label: "Image file", type: "image" }] },
+    {
+      id: "campus",
+      title: "campus.jpg",
+      subtitle: "Homepage / about",
+      status: "Reusable",
+      values: {
+        file_name: "campus.jpg",
+        file_path: "/campus.jpg",
+        alt_zh: "学校校园图片",
+        alt_sv: "Skolbild",
+      },
+      fields: getMediaFields(),
+    },
+    {
+      id: "ambassador",
+      title: "news-ambassador.jpg",
+      subtitle: "News / student works",
+      status: "Reusable",
+      values: {
+        file_name: "news-ambassador.jpg",
+        file_path: "/news-ambassador.jpg",
+        alt_zh: "学生朗诵活动图片",
+        alt_sv: "Recitationsaktivitet",
+      },
+      fields: getMediaFields(),
+    },
+    {
+      id: "finland",
+      title: "trip-finland.png",
+      subtitle: "Student works",
+      status: "Reusable",
+      values: {
+        file_name: "trip-finland.png",
+        file_path: "/trip-finland.png",
+        alt_zh: "学生游学活动图片",
+        alt_sv: "Studieresa",
+      },
+      fields: getMediaFields(),
+    },
+  ];
+}
+
+function getMediaFields(): AdminField[] {
+  return [
+    { key: "upload", label: "Upload image", type: "file" },
+    { key: "file_name", label: "File name", type: "text" },
+    { key: "file_path", label: "File path or URL", type: "image" },
+    { key: "alt_zh", label: "Alt text (ZH)", type: "text" },
+    { key: "alt_sv", label: "Alt text (SV)", type: "text" },
   ];
 }
 
@@ -280,7 +312,7 @@ function toSettingsRecords(): AdminRecord[] {
   return [
     {
       id: "site-settings",
-      title: "Global school settings",
+      title: "Basic site settings",
       subtitle: "Hero copy, contact information, and core school description",
       status: hasSupabaseEnv() ? "Connected" : "Preview mode",
       values: getSettingsSeedValues(),
@@ -299,27 +331,60 @@ function toSettingsRecords(): AdminRecord[] {
   ];
 }
 
+function getSeedRecordsBySection(): Record<EditableAdminSectionKey, AdminRecord[]> {
+  return {
+    news: toNewsRecords(),
+    teachers: toTeacherRecords(),
+    courses: toCourseRecords(),
+    "student-works": toStudentWorkRecords(),
+    hsk: toHskRecords(),
+    media: toMediaRecords(),
+    settings: toSettingsRecords(),
+  };
+}
+
+export function getAdminFieldsForSection(sectionKey: EditableAdminSectionKey): AdminField[] {
+  return getSeedRecordsBySection()[sectionKey][0]?.fields ?? [];
+}
+
 export function getAdminDataset(sectionKey: AdminSectionKey): AdminDataset {
   const section = adminSections.find((entry) => entry.key === sectionKey);
   if (!section) {
     throw new Error(`Unknown admin section: ${sectionKey}`);
   }
 
-  const recordsBySection: Record<Exclude<AdminSectionKey, "dashboard">, AdminRecord[]> = {
-    news: toNewsRecords(),
-    teachers: toTeacherRecords(),
-    courses: toCourseRecords(),
-    activities: toActivityRecords(),
-    hsk: toHskRecords(),
-    scholarships: toScholarshipRecords(),
-    media: toMediaRecords(),
-    settings: toSettingsRecords(),
-  };
-
   return {
     section,
-    records: sectionKey === "dashboard" ? [] : recordsBySection[sectionKey],
+    records: sectionKey === "dashboard" ? [] : getSeedRecordsBySection()[sectionKey],
   };
+}
+
+function mapSettingsRowsToRecord(rows: Record<string, unknown>[]): AdminRecord[] {
+  const seedValues = getSettingsSeedValues();
+  const zh = rows.find((row) => row.locale === "zh");
+  const sv = rows.find((row) => row.locale === "sv");
+
+  return [
+    {
+      id: "site-settings",
+      title: "Basic site settings",
+      subtitle: String(zh?.contact_email ?? sv?.contact_email ?? seedValues.contact_email),
+      status: "Connected",
+      updatedAt: String(zh?.updated_at ?? sv?.updated_at ?? ""),
+      values: {
+        hero_title_zh: String(zh?.hero_title ?? seedValues.hero_title_zh),
+        hero_title_sv: String(sv?.hero_title ?? seedValues.hero_title_sv),
+        hero_subtitle_zh: String(zh?.hero_subtitle ?? seedValues.hero_subtitle_zh),
+        hero_subtitle_sv: String(sv?.hero_subtitle ?? seedValues.hero_subtitle_sv),
+        about_summary_zh: String(zh?.about_summary ?? seedValues.about_summary_zh),
+        about_summary_sv: String(sv?.about_summary ?? seedValues.about_summary_sv),
+        contact_email: String(zh?.contact_email ?? sv?.contact_email ?? seedValues.contact_email),
+        contact_phone: String(zh?.contact_phone ?? sv?.contact_phone ?? seedValues.contact_phone),
+        contact_address: String(zh?.contact_address ?? sv?.contact_address ?? seedValues.contact_address),
+      },
+      fields: getAdminFieldsForSection("settings"),
+    },
+  ];
 }
 
 function mapSupabaseRowsToRecords(sectionKey: AdminSectionKey, rows: Record<string, unknown>[]): AdminRecord[] {
@@ -332,14 +397,17 @@ function mapSupabaseRowsToRecords(sectionKey: AdminSectionKey, rows: Record<stri
         status: row.is_featured ? "Featured" : "Published",
         updatedAt: String(row.published_at ?? ""),
         values: {
+          slug: String(row.slug ?? ""),
           title_zh: String(row.title_zh ?? ""),
           title_sv: String(row.title_sv ?? ""),
           excerpt_zh: String(row.excerpt_zh ?? ""),
           excerpt_sv: String(row.excerpt_sv ?? ""),
-          image: String(row.image ?? row.cover_media_id ?? ""),
-          date: String(row.published_at ?? ""),
+          body_zh: String(row.body_zh ?? ""),
+          body_sv: String(row.body_sv ?? ""),
+          image: String(row.cover_image_path ?? row.cover_media_id ?? ""),
+          date: String(row.published_at ?? "").slice(0, 10),
         },
-        fields: toNewsRecords()[0]?.fields ?? [],
+        fields: getAdminFieldsForSection("news"),
       }));
     case "teachers":
       return rows.map((row) => ({
@@ -356,9 +424,9 @@ function mapSupabaseRowsToRecords(sectionKey: AdminSectionKey, rows: Record<stri
           bio_sv: String(row.biography_sv ?? ""),
           focus_zh: String(row.focus_zh ?? ""),
           focus_sv: String(row.focus_sv ?? ""),
-          photo: String(row.media_id ?? ""),
+          photo: String(row.image_path ?? row.media_id ?? ""),
         },
-        fields: toTeacherRecords()[0]?.fields ?? [],
+        fields: getAdminFieldsForSection("teachers"),
       }));
     case "courses":
       return rows.map((row) => ({
@@ -379,24 +447,29 @@ function mapSupabaseRowsToRecords(sectionKey: AdminSectionKey, rows: Record<stri
           textbook_zh: String(row.textbook_zh ?? ""),
           textbook_sv: String(row.textbook_sv ?? ""),
         },
-        fields: toCourseRecords()[0]?.fields ?? [],
+        fields: getAdminFieldsForSection("courses"),
       }));
-    case "activities":
+    case "student-works":
       return rows.map((row) => ({
         id: String(row.slug ?? row.id),
-        title: String(row.title_zh ?? "Activity"),
-        subtitle: String(row.title_sv ?? ""),
-        status: "Published",
-        updatedAt: String(row.updated_at ?? ""),
+        title: String(row.title_zh ?? "Student work"),
+        subtitle: String(row.title_sv ?? row.category ?? ""),
+        status: String(row.category ?? "Published"),
+        updatedAt: String(row.updated_at ?? row.event_date ?? ""),
         values: {
+          slug: String(row.slug ?? ""),
+          category: String(row.category ?? ""),
           title_zh: String(row.title_zh ?? ""),
           title_sv: String(row.title_sv ?? ""),
           summary_zh: String(row.summary_zh ?? ""),
           summary_sv: String(row.summary_sv ?? ""),
-          image: String(row.cover_media_id ?? ""),
-          highlights: [],
+          body_zh: String(row.body_zh ?? ""),
+          body_sv: String(row.body_sv ?? ""),
+          image: String(row.cover_image_path ?? row.cover_media_id ?? ""),
+          event_date: String(row.event_date ?? ""),
+          highlights: Array.isArray(row.highlights_zh) ? (row.highlights_zh as string[]) : [],
         },
-        fields: toActivityRecords()[0]?.fields ?? [],
+        fields: getAdminFieldsForSection("student-works"),
       }));
     case "hsk":
       return rows.map((row) => ({
@@ -411,25 +484,9 @@ function mapSupabaseRowsToRecords(sectionKey: AdminSectionKey, rows: Record<stri
           summary_zh: String(row.summary_zh ?? ""),
           summary_sv: String(row.summary_sv ?? ""),
           date: String(row.exam_date ?? ""),
+          registration_url: String(row.registration_url ?? ""),
         },
-        fields: toHskRecords()[0]?.fields ?? [],
-      }));
-    case "scholarships":
-      return rows.map((row) => ({
-        id: String(row.slug ?? row.id),
-        title: String(row.title_zh ?? "Scholarship item"),
-        subtitle: String(row.title_sv ?? ""),
-        status: "Published",
-        updatedAt: String(row.published_at ?? ""),
-        values: {
-          title_zh: String(row.title_zh ?? ""),
-          title_sv: String(row.title_sv ?? ""),
-          summary_zh: String(row.summary_zh ?? ""),
-          summary_sv: String(row.summary_sv ?? ""),
-          published_at: String(row.published_at ?? ""),
-          image: String(row.cover_media_id ?? ""),
-        },
-        fields: toScholarshipRecords()[0]?.fields ?? [],
+        fields: getAdminFieldsForSection("hsk"),
       }));
     case "media":
       return rows.map((row) => ({
@@ -439,30 +496,15 @@ function mapSupabaseRowsToRecords(sectionKey: AdminSectionKey, rows: Record<stri
         status: "Stored",
         updatedAt: String(row.created_at ?? ""),
         values: {
-          file: String(row.file_path ?? ""),
+          file_name: String(row.file_name ?? ""),
+          file_path: String(row.file_path ?? ""),
+          alt_zh: String(row.alt_zh ?? ""),
+          alt_sv: String(row.alt_sv ?? ""),
         },
-        fields: toMediaRecords()[0]?.fields ?? [],
+        fields: getAdminFieldsForSection("media"),
       }));
     case "settings":
-      return rows.map((row) => ({
-        id: String(row.id),
-        title: `Settings (${String(row.locale ?? "unknown")})`,
-        subtitle: String(row.contact_email ?? ""),
-        status: "Connected",
-        updatedAt: String(row.updated_at ?? ""),
-        values: {
-          hero_title_zh: String(row.hero_title ?? ""),
-          hero_title_sv: String(row.hero_title ?? ""),
-          hero_subtitle_zh: String(row.hero_subtitle ?? ""),
-          hero_subtitle_sv: String(row.hero_subtitle ?? ""),
-          about_summary_zh: String(row.about_summary ?? ""),
-          about_summary_sv: String(row.about_summary ?? ""),
-          contact_email: String(row.contact_email ?? ""),
-          contact_phone: String(row.contact_phone ?? ""),
-          contact_address: String(row.contact_address ?? ""),
-        },
-        fields: toSettingsRecords()[0]?.fields ?? [],
-      }));
+      return mapSettingsRowsToRecord(rows);
     case "dashboard":
       return [];
   }
@@ -472,9 +514,8 @@ const supabaseTables: Partial<Record<AdminSectionKey, string>> = {
   news: "news_posts",
   teachers: "teachers",
   courses: "courses",
-  activities: "activities",
+  "student-works": "student_works",
   hsk: "hsk_updates",
-  scholarships: "scholarship_study_tour_posts",
   media: "media_assets",
   settings: "site_settings",
 };
@@ -498,14 +539,30 @@ export async function getAdminDatasetLive(sectionKey: AdminSectionKey): Promise<
         status: record.status,
         updatedAt: record.updatedAt,
         values: record.values,
-        fields: fallback.records[0]?.fields ?? [],
+        fields: getAdminFieldsForSection(sectionKey),
       })),
     };
   }
 
   try {
     const supabase = await createSupabaseServerClient();
-    const { data, error } = await supabase.from(table).select("*");
+    let query = supabase.from(table).select("*");
+
+    if (sectionKey === "news") {
+      query = query.order("published_at", { ascending: false });
+    } else if (sectionKey === "teachers" || sectionKey === "courses") {
+      query = query.order("sort_order", { ascending: true });
+    } else if (sectionKey === "student-works") {
+      query = query.order("event_date", { ascending: false, nullsFirst: false });
+    } else if (sectionKey === "hsk") {
+      query = query.order("exam_date", { ascending: false, nullsFirst: false });
+    } else if (sectionKey === "settings") {
+      query = query.order("locale", { ascending: true });
+    } else {
+      query = query.order("created_at", { ascending: false });
+    }
+
+    const { data, error } = await query;
 
     if (error || !data) {
       return fallback;
@@ -520,10 +577,7 @@ export async function getAdminDatasetLive(sectionKey: AdminSectionKey): Promise<
   }
 }
 
-export async function getAdminRecordLive(
-  sectionKey: Exclude<AdminSectionKey, "dashboard">,
-  recordId: string
-) {
+export async function getAdminRecordLive(sectionKey: EditableAdminSectionKey, recordId: string) {
   if (!hasSupabaseEnv()) {
     return getPreviewRecord(sectionKey, recordId);
   }
@@ -534,21 +588,21 @@ export async function getAdminRecordLive(
 
 export function getDashboardStats() {
   return [
-    { label: "News posts", value: String(newsItems.length), note: "Latest school updates and notices" },
-    { label: "Teacher profiles", value: String(teachers.length), note: "Staff-facing school presentation" },
-    { label: "Course entries", value: String(courses.length), note: "Age groups, objectives, and textbooks" },
-    { label: "Activity categories", value: String(activityCategories.length), note: "Student works, competitions, and activities" },
+    { label: "News", value: String(newsItems.length), note: "School updates and notices" },
+    { label: "Teachers", value: String(teachers.length), note: "Profiles visible inside About" },
+    { label: "Courses", value: String(courses.length), note: "Age groups, objectives, and textbooks" },
+    { label: "Student Works", value: String(activityCategories.length), note: "Recitation, calligraphy, and activities" },
   ];
 }
 
 export function getAdminOperationalNotes() {
   return [
     hasSupabaseEnv()
-      ? "Supabase environment variables are configured. The next step is wiring server actions or route handlers to persist edits."
-      : "Supabase environment variables are not configured yet, so the admin currently runs in preview mode with seeded data.",
-    "The schema already includes news, teachers, courses, activities, HSK updates, scholarships, media assets, and site settings.",
+      ? "Supabase is configured. Admin reads and writes the Phase 1 CMS tables."
+      : "Supabase is not configured yet, so the admin runs in preview mode with seeded local data.",
+    "Phase 1 scope is limited to news, teachers, courses, student works, HSK information, media, and basic site settings.",
+    "Scholarships and study tours stay inside HSK information for now; they are not a separate admin column in this phase.",
     `Core school contact information is prepared: ${contactInfo.email} / ${contactInfo.phone}.`,
-    `School overview content and hero copy are now centralized instead of scattered across static pages.`,
   ];
 }
 

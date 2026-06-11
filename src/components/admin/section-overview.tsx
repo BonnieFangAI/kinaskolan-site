@@ -5,10 +5,11 @@ import {
   type AdminField,
   type AdminSectionKey,
   getAdminOperationalNotes,
+  getAdminFieldsForSection,
   getDashboardStats,
   getSettingsSeedValues,
 } from "@/lib/admin-data";
-import { saveAdminRecordAction } from "@/app/admin/actions";
+import { deleteAdminRecordAction, saveAdminRecordAction } from "@/app/admin/actions";
 
 function sectionPath(section: AdminSectionKey) {
   return section === "dashboard" ? "/admin" : `/admin/${section}`;
@@ -25,6 +26,7 @@ function renderFieldPreview(field: AdminField) {
     date: "Date field",
     email: "Email address",
     image: "Image or cover asset",
+    file: "Upload field",
   };
 
   return `${field.label}: ${samples[field.type]}`;
@@ -92,6 +94,11 @@ export function AdminSectionOverview({ dataset }: { dataset: AdminDataset }) {
       </div>
 
       <div className="grid gap-4">
+        {dataset.records.length === 0 ? (
+          <div className="rounded-[28px] bg-white p-7 text-sm leading-7 text-slate-600 shadow-sm ring-1 ring-slate-200">
+            No records yet. Use the button above to create the first item in this CMS section.
+          </div>
+        ) : null}
         {dataset.records.map((record) => (
           <article key={record.id} className="rounded-[28px] bg-white p-6 shadow-sm ring-1 ring-slate-200">
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -143,7 +150,7 @@ export function AdminRecordEditor({
         title: `New ${dataset.section.label}`,
         subtitle: "Create a new record",
         status: "Draft",
-        fields: dataset.records[0]?.fields ?? [],
+        fields: getAdminFieldsForSection(dataset.section.key as Exclude<AdminSectionKey, "dashboard">),
       }
     : dataset.records.find((entry) => entry.id === recordId);
 
@@ -176,7 +183,7 @@ export function AdminRecordEditor({
         </div>
       </div>
 
-      <form className="rounded-[28px] bg-white p-7 shadow-sm ring-1 ring-slate-200">
+      <form className="rounded-[28px] bg-white p-7 shadow-sm ring-1 ring-slate-200" encType="multipart/form-data">
         <input type="hidden" name="section" value={dataset.section.key} />
         <input type="hidden" name="recordId" value={createMode ? "" : record.id} />
         <div className="grid gap-5">
@@ -201,6 +208,13 @@ export function AdminRecordEditor({
                   rows={5}
                   className="rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400"
                 />
+              ) : field.type === "file" ? (
+                <input
+                  name={field.key}
+                  type="file"
+                  accept="image/*"
+                  className="rounded-2xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-slate-400"
+                />
               ) : (
                 <input
                   name={field.key}
@@ -220,10 +234,28 @@ export function AdminRecordEditor({
             Save changes
           </button>
           <p className="text-sm leading-7 text-slate-500">
-            In preview mode this saves to a local JSON store. When Supabase is configured, this action can switch to database writes.
+            Saves to the local preview store when Supabase is not configured, and to Supabase when a real CMS backend is connected.
           </p>
         </div>
       </form>
+
+      {!createMode && dataset.section.key !== "settings" ? (
+        <form className="rounded-[28px] bg-white p-7 shadow-sm ring-1 ring-slate-200">
+          <input type="hidden" name="section" value={dataset.section.key} />
+          <input type="hidden" name="recordId" value={record.id} />
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm leading-7 text-slate-600">
+              Delete this record from the CMS. This does not remove uploaded media files from storage.
+            </p>
+            <button
+              formAction={deleteAdminRecordAction}
+              className="rounded-full border border-red-200 px-5 py-3 text-sm font-semibold text-red-700 hover:bg-red-50"
+            >
+              Delete record
+            </button>
+          </div>
+        </form>
+      ) : null}
     </div>
   );
 }

@@ -3,7 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { SectionShell } from "@/components/section-shell";
-import { activityCategories, assetPath, isLocale, t } from "@/lib/site-content";
+import { getStudentWorkContent } from "@/lib/cms-content";
+import { assetPath, isLocale, t } from "@/lib/site-content";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -32,6 +33,8 @@ export default async function StudentsPage({ params }: PageProps) {
     notFound();
   }
 
+  const studentWorks = await getStudentWorkContent();
+
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-5 py-10 sm:px-6 lg:px-10 lg:py-14">
       <SectionShell
@@ -47,7 +50,7 @@ export default async function StudentsPage({ params }: PageProps) {
         }}
       >
         <div className="grid gap-6">
-          {activityCategories.map((item) => (
+          {studentWorks.map((item) => (
             <article key={item.key} className="overflow-hidden rounded-lg border border-black/8 bg-white shadow-sm">
               <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr]">
                 <Image

@@ -3,15 +3,14 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 
 import { SectionShell } from "@/components/section-shell";
+import { getCourseContent, getSiteSettingsContent, getTeacherContent } from "@/lib/cms-content";
 import {
   admissionsCards,
   assetPath,
-  courses,
   historyMilestones,
   isLocale,
   schoolOverview,
   t,
-  teachers,
 } from "@/lib/site-content";
 
 type PageProps = {
@@ -41,6 +40,13 @@ export default async function AboutPage({ params }: PageProps) {
     notFound();
   }
 
+  const [settings, teacherContent, courseContent] = await Promise.all([
+    getSiteSettingsContent(),
+    getTeacherContent(),
+    getCourseContent(),
+  ]);
+  const aboutIntro = t(locale, settings.aboutSummary) || t(locale, schoolOverview.intro);
+
   return (
     <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-5 py-10 sm:px-6 lg:px-10 lg:py-14">
       <SectionShell
@@ -58,7 +64,7 @@ export default async function AboutPage({ params }: PageProps) {
         <div className="grid gap-7 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <article id="school" className="space-y-5 rounded-lg border border-black/8 bg-white p-6 shadow-sm">
             <h3 className="text-2xl font-semibold text-brand-ink">{locale === "zh" ? "学校简介" : "Skolprofil"}</h3>
-            <p className="text-base leading-8 text-slate-600">{t(locale, schoolOverview.intro)}</p>
+            <p className="text-base leading-8 text-slate-600">{aboutIntro}</p>
             <p className="text-base leading-8 text-slate-600">{t(locale, schoolOverview.purpose)}</p>
           </article>
 
@@ -106,7 +112,7 @@ export default async function AboutPage({ params }: PageProps) {
           </h2>
         </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {teachers.map((teacher) => (
+          {teacherContent.map((teacher) => (
             <article key={teacher.name} className="rounded-lg border border-black/8 bg-white p-5 shadow-sm">
               <div className="flex items-center gap-4">
                 <Image
@@ -135,7 +141,7 @@ export default async function AboutPage({ params }: PageProps) {
           </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2">
-          {courses.map((course) => (
+          {courseContent.map((course) => (
             <article key={course.name.zh} className="rounded-lg border border-black/8 bg-white p-5 shadow-sm">
               <p className="text-sm font-semibold text-brand-brick">{t(locale, course.ageGroup)}</p>
               <h3 className="mt-2 text-xl font-semibold text-brand-ink">{t(locale, course.name)}</h3>
