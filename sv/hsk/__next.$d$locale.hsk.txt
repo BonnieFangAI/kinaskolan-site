@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[1982,[],""]
-3:I[5220,[],""]
+2:I[39756,["/kinaskolan-site/_next/static/chunks/05-c3ty_6dwfk.js","/kinaskolan-site/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
+3:I[37457,["/kinaskolan-site/_next/static/chunks/05-c3ty_6dwfk.js","/kinaskolan-site/_next/static/chunks/14mrh2-p_w84d.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"aRt2m4Vbc11W3JE2L2mke"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"_mxm6ZF1baxZeZAqPM32n"}
