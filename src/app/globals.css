@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-noto-serif-sc);
+  --color-brand-ink: #172739;
+  --color-brand-blue: #172739;
+  --color-brand-green: #5d7266;
+  --color-brand-gold: #c08f4f;
+  --color-brand-brick: #8e5237;
+  --color-brand-amber: #c08f4f;
+  --color-brand-sage: #5d7266;
+  --color-brand-mist: #e4ebe7;
+  --color-brand-paper: #f7f8f5;
+}
+
+html {
+  background: #f7f8f5;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: #172739;
+  background: linear-gradient(180deg, #ffffff 0%, #f7f8f5 48%, #eef3ef 100%);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+body::before {
+  content: none;
+}
+
+a,
+button {
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-noto-serif-sc), serif;
+}
+
+::selection {
+  background: rgba(142, 82, 55, 0.18);
+}
