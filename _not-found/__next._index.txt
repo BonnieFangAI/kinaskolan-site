@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[1982,[],""]
+3:I[5220,[],""]
+:HL["/kinaskolan-site/_next/static/css/c90d8a4e7ebbaaa9.css","style"]
+:HL["/kinaskolan-site/_next/static/css/ba4a31bffce32836.css","style"]
+:HL["/kinaskolan-site/_next/static/css/d78c9a158bdbe235.css","style"]
+0:{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/kinaskolan-site/_next/static/css/c90d8a4e7ebbaaa9.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/kinaskolan-site/_next/static/css/ba4a31bffce32836.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/kinaskolan-site/_next/static/css/d78c9a158bdbe235.css","precedence":"next"}]],["$","html",null,{"lang":"zh-Hans","className":"__variable_17ebaf __variable_60f131 antialiased","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"aRt2m4Vbc11W3JE2L2mke"}

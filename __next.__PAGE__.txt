@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[7767,[],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-[#f7f3eb] px-6 py-16 text-[#251c16]","children":[["$","meta",null,{"httpEquiv":"refresh","content":"0; url=/kinaskolan-site/zh/"}],["$","div",null,{"className":"mx-auto max-w-xl","children":[["$","p",null,{"className":"text-sm uppercase tracking-[0.2em] text-[#8a4b2f]","children":"Kinaskolan preview"}],["$","h1",null,{"className":"mt-4 text-3xl font-semibold","children":"瑞青中文学校预览"}],["$","p",null,{"className":"mt-4 text-base text-[#5b4a3d]","children":"如果页面没有自动跳转，请进入中文预览首页。"}],["$","a",null,{"className":"mt-8 inline-flex text-sm font-semibold text-[#8a4b2f]","href":"/kinaskolan-site/zh/","children":"进入预览"}]]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"aRt2m4Vbc11W3JE2L2mke"}
+4:null
